@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
+footer {
+  color: white;
+  background-color: rgb(31, 29, 29);
+  height: 300px;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+}
