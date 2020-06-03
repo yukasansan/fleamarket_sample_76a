@@ -137,3 +137,22 @@
 
 ##Association
 - has_many:brands,through: :brands_genres has_many:brands_genres
+
+##cardsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null:false|
+|customer_id|integer|null:false|
+|card_id|integer|null:false|
+
+##Association
+- belongs_to :user
+
+##residencesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|prefecture_id|integer|null:false|
+|city|text|null:false|
+
+##Association
+- belongs_to_active_hash :prefecture
