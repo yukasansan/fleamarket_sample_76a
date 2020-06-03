@@ -1,10 +1,29 @@
-<%= image_tag('logo/logo.png') %>
-<%= image_tag('pict/bg-mainVisual-pict_pc.jpg') %>
-<%= image_tag('pict/pict-reason-01.jpg') %>
-<%= image_tag('pict/pict-reason-02.jpg') %>
-<%= image_tag('pict/pict-reason-03.jpg') %>
-<%= image_tag('pict/bg-topMiddleDl-pict.jpg') %>
-<%= image_tag('pict/bg-appBanner-pict.jpg') %>
+<header>
+  <div class="header-contents">
+    <div class="">
+    </div>
+  </div>
+</header>
+<div class="contents">
+  <div class="mainVisual">
+  </div>
+<div>
+<div class= "pict-reason">
+FURIMAが選ばれる3つの理由
+  <div class="pict-reason-01">
+  </div>
+  <div class="pict-reason-02">
+  </div>
+  <div class="pict-reason-03">
+  </div>
+</div>
+<div class="topMiddleDl-pict">
+</div>
+  <%= image_tag('icon/icon-01.png') %>
+  <%= image_tag('icon/icon-03.png') %>
+  <%= image_tag('icon/icon-04.png') %>
+<aside class="appBanner">
+</aside>
 <footer>
   <div class="footer__left">
     FURIMAについて
@@ -25,3 +44,9 @@
     お知らせ
   </div>
 </footer>
+<%= link_to "#" do %>
+  <div class="sellBtn">
+    <span class="sellBtn__text">出品する</span>
+    <%= image_tag 'icon/icon_camera.png', size: '54x54', class:"sellBtn_icon" %>
+  </div>
+<% end %>
