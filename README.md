@@ -15,7 +15,11 @@
 |text|text|null:false|
 
 ##Association
-- has_one:address, dependent: :destroy has_many:messages, dependent:  :destroy has_many:items, dependent: :destroy has_many:comments, dependent: :destroy has_many:likes, dependent: :destroy
+- has_one:address, dependent: :destroy
+- has_many:messages, dependent:  :destroy
+- has_many:items, dependent: :destroy
+- has_many:comments, dependent: :destroy
+- has_many:likes, dependent: :destroy
 
 ##addressテーブル
 |Column|Type|Options|
@@ -64,7 +68,10 @@
 |sale_status|string|null:false|
 
 ##Association
-- belongs_to:user belongs_to:category, dependent: :destroy has_many:item_images, dependent: :destroy has_many:messages, dependent: :destroy belongs_to:bland, dependent: :destroy has_many:likes, dependent: :destroy has_many:comments, dependent: :destroy
+- belongs_to:user belongs_to:category, dependent: :destroy 
+- has_many:item_images, dependent: :destroy
+- has_many:messages, dependent: :destroy belongs_to:bland, dependent: :destroy 
+- has_many:likes, dependent: :destroy has_many:comments, dependent: :destroy
 
 ##categoriesテーブル
 |Column|Type|Options|
@@ -103,7 +110,7 @@
 |seller_id|integer|null:false,foreign_key:true|
 
 ##Association
-belongs_to:item belongs_to:user
+- belongs_to:item belongs_to:user
 
 ##brandsテーブル
 |Column|Type|Options|
@@ -111,7 +118,8 @@ belongs_to:item belongs_to:user
 |name|string|null:false|
 
 ##Association
-- has_many:items has_many:genres,through: :brands_genres has_many:brands_genres
+- has_many:items has_many:genres,through: :brands_genres
+- has_many:brands_genres
 
 ##brands_genresテーブル
 |Column|Type|Options|
