@@ -257,6 +257,36 @@ header {
       }
     }
   }
+  .pickup {
+    padding: 80px 0 0;
+    background-color: #f8f8f8;
+    height: 100%;
+    &__title {
+      text-align: center;
+      font-size: 28px;
+      line-height: 1.4;
+      font-weight: bold;
+    }
+    &-contents {
+      &__head {
+        text-align: center;
+        a {
+          font-size: 24px;
+          text-decoration: none;
+          color: #3CCACE;
+        }
+        &-title {
+          font-weight: bold;
+        }
+      }
+      .puCtg-products {
+        width: 780px;
+        margin: 26px auto;
+        display: flex;
+        justify-content: space-around;
+      }
+    }
+  }
 }
 
 .appBanner {
@@ -265,6 +295,20 @@ header {
   position: relative;
   background-size: cover;
   background-position: center;
+  &-contents {
+    color: #fff;
+    text-align: center;
+    &__title {
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    &__text {
+      font-size: 35px;
+      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+  }
 }
 
 footer {
@@ -272,6 +316,43 @@ footer {
   color: #fff;
   background-color: #272727;
   text-align: center;
+  .footer-texts {
+    max-width: 840px;
+    margin: 0 auto;
+    display: flex;
+    &__content {
+      display: flex;
+      flex-direction: column;
+      width: calc(1 / 3 * 100%);
+      margin: 0 2% 0 0;
+      &-title {
+        margin: 0 0 20px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      ul {
+        list-style: none;
+        li, a {
+          color: #fff;
+          text-decoration: none;
+          font-size: 12px;
+          line-height: 32px;
+        }
+      }
+    }
+  }
+  .footer-logo {
+    max-width: 160px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  img {
+    width: 100%;
+    vertical-align: bottom;
+  }
+  p {
+    font-size: 14px;
+  }
 }
 
 .sellBtn {
@@ -289,9 +370,6 @@ footer {
     font-size: 18px;
     text-decoration: none;
     margin-bottom: 5px;
-  }
-  img {
-    vertical-align: bottom;
   }
   &__icon {
     width: 60%;
