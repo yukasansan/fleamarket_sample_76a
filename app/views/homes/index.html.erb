@@ -1,27 +1,107 @@
 <header>
   <div class="header-contents">
-    <div class="">
+    <div class="header-contents__main">
+      <h1 class="header-contents__main-icon">
+        <%= link_to root_path  do %>
+          <%= image_tag 'logo/logo.png', size: '140x41' %>
+        <% end %>
+      </h1>
+    </div>
+    <div class="header-contents__bottom">
+      <ul class="bottomLeft">
+        <li class="bottomLeft__category">
+          <%= link_to "カテゴリー", "#", id: "categoryBtn" %>
+          <%= link_to "ブランド", "#", id: "brandBtn" %>
+        </li>
+      </ul>
+      <ul>
+      </ul>
     </div>
   </div>
 </header>
-<div class="contents">
+<div class="topContents">
   <div class="mainVisual">
+    <div class="mvContent">
+      <h2 class="mvContent__title"><br>
+        人生を変えるフリマアプリ
+      </h2>
+      <p class="mvContent__text">
+        FURIMAはだれでもかんたんに出品・購入できる<br>フリマアプリです
+      </p>
+      <div class="mvContent__button">
+      </div>
+    </div>
   </div>
-<div>
-<div class= "pict-reason">
-FURIMAが選ばれる3つの理由
-  <div class="pict-reason-01">
+  <div class= "pict-reason">
+    <h2 class="pict-reason__title">
+      FURIMAが選ばれる3つの理由
+    </h2>
+    <ul class="pict-reason__lists">
+      <li class="prList">
+        <div class="prList__image">
+          <span class="prList__image--number">1</span>
+          <%= image_tag 'pict/pict-reason-01.jpg', size: '240x240' %>
+        </div>
+        <h3 class="prList__text">
+          <span>3分</span>
+          ですぐに出品
+        </h3>
+        <p class="prList__appeal">
+          スマホで入力するだけで簡単に出品できる！
+        </p>
+      </li>
+      <li class="prList">
+        <div class="prList__image">
+          <span class="prList__image--number">2</span>
+          <%= image_tag 'pict/pict-reason-02.jpg', size: '240x240' %>
+        </div>
+        <h3 class="prList__text">
+          <span>シンプル</span>
+          で使いやすい
+        </h3>
+        <p class="prList__appeal">
+          めんどくさい入力は必要なく、検索も購入もスムーズ！
+        </p>
+      </li>
+      <li class="prList">
+        <div class="prList__image">
+          <span class="prList__image--number">3</span>
+          <%= image_tag 'pict/pict-reason-03.jpg', size: '240x240' %>
+        </div>
+        <h3 class="prList__text">
+          手数料
+          <span>業界最安</span>
+        </h3>
+        <p class="prList__appeal">
+          最大3%でお得に出品&購入！
+        </p>
+      </li>
+    </ul>
   </div>
-  <div class="pict-reason-02">
+  <div class="topMiddleDl">
+    <div class="topMiddleDl-content">
+      <h2 class="topMiddleDl-content__title">会員数日本一位</h2>
+      </h2>
+      <p class="topMiddleDl-content__text">
+        FURIMAは、フリマアプリで最も人気。
+        <br>
+        出品・購入回数も業界最多です！
+        <br>
+        ほしかったあの商品に出会えるかもしれません。
+      </p>
+      <div class="topMiddleDl-content__button">
+      </div>
+    </div>
   </div>
-  <div class="pict-reason-03">
+  <div class="features">
+    <h2 class="features-title">
+      FURIMAの特徴
+    </h2>
+    <%= image_tag('icon/icon-01.png') %>
+    <%= image_tag('icon/icon-03.png') %>
+    <%= image_tag('icon/icon-04.png') %>
   </div>
 </div>
-<div class="topMiddleDl-pict">
-</div>
-  <%= image_tag('icon/icon-01.png') %>
-  <%= image_tag('icon/icon-03.png') %>
-  <%= image_tag('icon/icon-04.png') %>
 <aside class="appBanner">
 </aside>
 <footer>
