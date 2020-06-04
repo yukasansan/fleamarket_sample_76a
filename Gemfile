@@ -73,3 +73,5 @@ group :production do
   gem 'unicorn'
 end
 
+gem 'rails-i18n'
+
