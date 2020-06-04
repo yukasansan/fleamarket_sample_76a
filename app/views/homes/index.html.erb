@@ -20,7 +20,7 @@
   </div>
 </header>
 <div class="topContents">
-  <div class="mainVisual">
+  <section class="mainVisual">
     <div class="mvContent">
       <h2 class="mvContent__title"><br>
         人生を変えるフリマアプリ
@@ -31,8 +31,8 @@
       <div class="mvContent__button">
       </div>
     </div>
-  </div>
-  <div class= "pict-reason">
+  </section>
+  <section class= "pict-reason">
     <h2 class="pict-reason__title">
       FURIMAが選ばれる3つの理由
     </h2>
@@ -40,45 +40,45 @@
       <li class="prList">
         <div class="prList__image">
           <span class="prList__image--number">1</span>
-          <%= image_tag 'pict/pict-reason-01.jpg', size: '240x240' %>
+          <%= image_tag 'pict/pict-reason-01.jpg' %>
         </div>
-        <h3 class="prList__text">
+        <h3 class="prList__title">
           <span>3分</span>
           ですぐに出品
         </h3>
-        <p class="prList__appeal">
+        <p class="prList__text">
           スマホで入力するだけで簡単に出品できる！
         </p>
       </li>
       <li class="prList">
         <div class="prList__image">
           <span class="prList__image--number">2</span>
-          <%= image_tag 'pict/pict-reason-02.jpg', size: '240x240' %>
+          <%= image_tag 'pict/pict-reason-02.jpg' %>
         </div>
-        <h3 class="prList__text">
+        <h3 class="prList__title">
           <span>シンプル</span>
           で使いやすい
         </h3>
-        <p class="prList__appeal">
+        <p class="prList__text">
           めんどくさい入力は必要なく、検索も購入もスムーズ！
         </p>
       </li>
       <li class="prList">
         <div class="prList__image">
           <span class="prList__image--number">3</span>
-          <%= image_tag 'pict/pict-reason-03.jpg', size: '240x240' %>
+          <%= image_tag 'pict/pict-reason-03.jpg' %>
         </div>
-        <h3 class="prList__text">
+        <h3 class="prList__title">
           手数料
           <span>業界最安</span>
         </h3>
-        <p class="prList__appeal">
+        <p class="prList__text">
           最大3%でお得に出品&購入！
         </p>
       </li>
     </ul>
-  </div>
-  <div class="topMiddleDl">
+  </section>
+  <section class="topMiddleDl">
     <div class="topMiddleDl-content">
       <h2 class="topMiddleDl-content__title">会員数日本一位</h2>
       </h2>
@@ -89,18 +89,50 @@
         <br>
         ほしかったあの商品に出会えるかもしれません。
       </p>
-      <div class="topMiddleDl-content__button">
+      <div class="topMiddleDl-content__btn">
       </div>
     </div>
-  </div>
-  <div class="features">
-    <h2 class="features-title">
+  </section>
+  <section class="features">
+    <h2 class="features__title">
       FURIMAの特徴
     </h2>
-    <%= image_tag('icon/icon-01.png') %>
-    <%= image_tag('icon/icon-03.png') %>
-    <%= image_tag('icon/icon-04.png') %>
-  </div>
+    <div class="features__contents">
+      <section class="ftContent">
+        <figure class="ftContent__img">
+          <%= image_tag 'icon/icon-01.png' %>
+        </figure>
+        <h3 class="ftContent__title">
+          簡単に売り買いできる
+        </h3>
+        <p class="ftContent__text">
+          スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+        </p>
+      </section>
+      <section class="ftContent">
+        <figure class="ftContent__img">
+          <%= image_tag 'icon/icon-03.png' %>
+        </figure>
+        <h3 class="ftContent__title">
+          売上金は即日振り込みに対応
+        </h3>
+        <p class="ftContent__text">
+          午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします！
+        </p>
+      </section>
+      <section class="ftContent">
+        <figure class="ftContent__img">
+          <%= image_tag 'icon/icon-04.png' %>
+        </figure>
+        <h3 class="ftContent__title">
+          様々な支払いに対応
+        </h3>
+        <p class="ftContent__text">
+          お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
+        </p>
+      </section>
+    </div>
+  </section>
 </div>
 <aside class="appBanner">
 </aside>
