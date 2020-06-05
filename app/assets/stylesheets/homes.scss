@@ -19,15 +19,51 @@
   a:hover {
     opacity: 0.5;
   }
-  img {
-    width: 100%;
-    vertical-align: bottom;
+}
+
+@mixin top_a_left {
+  color: #333;
+  text-decoration: none;
+  line-height: 32px;
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  padding-right: 30px;
+}
+
+@mixin top_a_right {
+  display: flex;
+  align-items: center;
+  color: #333;
+  text-decoration: none;
+  line-height: 32px;
+}
+
+img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+.displayNone {
+  // display: none;
+}
+
+.tree {
+  z-index: 2;
+  position: absolute;
+  background-color: #fff;
+  width: 240px;
+  top: 40px;
+  .categoryTree {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
   }
 }
 
-header {
+.top-header {
   padding: 0 60px;
-  display: block;
   .header-contents {
     max-width: 1040px;
     width: 100%;
@@ -38,55 +74,91 @@ header {
       position: relative;
       display: flex;
       align-items: center;
-      h1 {
-        font-size: 100%;
-        font-weight: normal;
       &-icon {
         padding-bottom: 10px;
         margin-right: 30px;
         border-radius: 4px;
+        a {
+          width: 140px;
+          display: block;
+        }
       }
+      &-searchBox {
+        margin-left: auto;
+        width: 100%;
+        form {
+          width: 100%;
+          display: flex;
+          margin-bottom: 5px;
+          input {
+            width: calc(100% - 26px);
+            height: 36px;
+            padding: 0 0 0 5px;
+          }
+          .searchBox-btn {
+            color: transparent;
+            background-image: url('icon/icon-search1.png');
+            background-size: 20px 20px;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 36px;
+            border: 0;
+            cursor: pointer;
+            background-color: #3CCACE;
+            padding: 8px;
+          }
+        }
       }
+    }
     &__bottom {
       font-size: 14px;
       display: flex;
       margin-bottom: 10px;
-      .bottomLeft {
+      .hcBottom__left {
         position: relative;
         display: flex;
-        &__category {
+        &--category {
           display: flex;
           line-height: 38px;
           a {
-            color: #333;
-            text-decoration: none;
-            line-height: 32px;
-            background-position: center right;
-            background-repeat: no-repeat;
-            background-size: 18px;
-            padding-right: 30px;
+            @include top_a_left
+          }
+          a:hover {
+            color: #ffb340;
           }
         }
-        &__brand {
+        &--brand {
           display: flex;
           line-height: 38px;
           padding: 0 0 0 16px;
           a {
-            color: #333;
-            text-decoration: none;
-            line-height: 32px;
-            background-position: center right;
-            background-repeat: no-repeat;
-            background-size: 18px;
-            padding-right: 30px;
+            @include top_a_left
+          }
+          a:hover {
+            color: #ffb340;
           }
         }
       }
-      .bottomRight {
+      .hcBottom__right {
         margin-left: auto;
         display: flex;
+        &--session {
+          color: #333;
+          line-height: 38px;
+          padding: 0 0 0 16px;
+          a {
+            @include top_a_right
+          }
+        }
+        &--registration {
+          color: #333;
+          line-height: 38px;
+          padding: 0 0 0 16px;
+          a {
+            @include top_a_right
+          }
+        }
       }
-    }
     }
   }
 }
@@ -179,10 +251,6 @@ header {
             background-color: #3CCACE;
             color: #fff;
           }
-          img {
-            width: 100%;
-            vertical-align: bottom;
-          }
         }
         &__title {
           font-weight: bold;
@@ -271,10 +339,6 @@ header {
           width: 70%;
           margin: 0 auto;
           line-height: 120px;
-        }
-        img {
-          width: 100%;
-          vertical-align: bottom;
         }
         &__title {
           margin: 38px 0 10px;
@@ -385,9 +449,12 @@ header {
           }
         }
       }
+      .pickupContainer:last-child {
+      padding-bottom: 80px;
+      }
     }
   }
-  .pickupContainer:last-child {
+  .pickup:last-child {
     padding-bottom: 80px;
   }
 }
@@ -456,10 +523,6 @@ footer {
     max-width: 160px;
     width: 100%;
     margin: 0 auto;
-  }
-  img {
-    width: 100%;
-    vertical-align: bottom;
   }
   p {
     font-size: 14px;
