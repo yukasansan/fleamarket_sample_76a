@@ -25,7 +25,7 @@
       <ul class="hcBottom__right">
         <% if user_signed_in? %>
           <li class="hcBottom__right--session">
-            <%= link_to "username", "#" %>
+            <%= link_to current_user.name, "#" %>
           </li>
           <li class="hcBottom__right--registration">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
