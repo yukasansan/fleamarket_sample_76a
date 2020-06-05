@@ -54,15 +54,15 @@
   <div>
     <label>電話番号</label>
     <span class="form-require">必須</span><br>
-    <%= f.text_field :telephone, placeholder:"例）090-※※※※-※※※※" %>
+    <%= f.text_field :telephone, placeholder:"11桁の数値を入力してください" %>
   </div>
 
   <div>
     <label>生年月日</label>
     <span class="form-require">必須</span><br>
-    <%= f.text_field :birthyear, autofocus: true, autocomplete: "birthyear", placeholder:"1980（年）" %>
-    <%= f.text_field :birthmonth, autofocus: true, autocomplete: "birth", placeholder:"4（月）" %>
-    <%= f.text_field :birthday, autofocus: true, autocomplete: "birthyear", placeholder:"20（日）" %>
+    <%= f.text_field :birthyear, autofocus: true, placeholder:"半角数字" %>年
+    <%= f.text_field :birthmonth, autofocus: true, placeholder:"半角数字" %>月
+    <%= f.text_field :birthday, autofocus: true, placeholder:"半角数字" %>日
   </div>
 
   <p>※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。</p>
