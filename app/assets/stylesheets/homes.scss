@@ -3,6 +3,28 @@
   font-family: "Helvetica";
 }
 
+@import "font-awesome";
+
+@mixin banner {
+  display: flex;
+  .appStoreBtn {
+    width: 180px;
+  }
+  .googlePlayBtn {
+    width: 180px;
+  }
+  a:first-child {
+    margin-right: 10px;
+  }
+  a:hover {
+    opacity: 0.5;
+  }
+  img {
+    width: 100%;
+    vertical-align: bottom;
+  }
+}
+
 header {
   padding: 0 60px;
   display: block;
@@ -100,8 +122,13 @@ header {
         line-height: 1.77778;
         margin: 16px 0 0 0;
       }
+      &__btn {
+        @include banner;
+        margin: 24px 0 0 0;
+      }
     }
   }
+
   .pict-reason {
     padding: 60px 20px;
     &__title {
@@ -174,6 +201,7 @@ header {
       }
     }
   }
+
   .topMiddleDl {
     background-image: url('pict/bg-topMiddleDl-pict.jpg');
     background-position: bottom right;
@@ -198,8 +226,13 @@ header {
         margin: 20px 0 30px;
         line-height: 1.5;
       }
+      &__btn {
+        @include banner;
+        margin: 24px 0 0 0;
+      }
     }
   }
+
   .features {
     padding: 60px 100px;
     background-color: #fff;
@@ -257,6 +290,7 @@ header {
       }
     }
   }
+
   .pickup {
     padding: 80px 0 0;
     background-color: #f8f8f8;
@@ -279,13 +313,82 @@ header {
           font-weight: bold;
         }
       }
-      .puCtg-products {
+      .pickup-products {
         width: 780px;
         margin: 26px auto;
         display: flex;
         justify-content: space-around;
+        a {
+          text-decoration: none;
+          position: relative;
+        }
+        &__item {
+          width: 220px;
+          display: inline-block;
+          float: left;
+          a {
+          background-color: #fff;
+          display: inline-block;
+          }
+          &-img {
+            width: 220px;
+            height: 150px;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            z-index: auto;
+            img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              width: 100%;
+              z-index: auto;
+              height: 150px;
+              object-fit: cover;
+            }
+          }
+          &-content {
+            background-color: white;
+            color: #333;
+            padding: 16px;
+            &--name {
+              overflow: hidden;
+              line-height: 1.5;
+              font-size: 16px;
+              text-align: left;
+            }
+            &--detail {
+              font-size: 16px;
+              ul {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .fa {
+                  display: inline-block;
+                  font: normal normal normal 14px/1 FontAwesome;
+                  font-size: inherit;
+                  text-rendering: auto;
+                  -webkit-font-smoothing: antialiased;
+                  -moz-osx-font-smoothing: grayscale;
+                }
+                .fa-star:before {
+                  content: "\f005";
+                }
+              }
+              p {
+                font-size: 10px;
+                text-align: left;
+              }
+            }
+          }
+        }
       }
     }
+  }
+  .pickupContainer:last-child {
+    padding-bottom: 80px;
   }
 }
 
@@ -307,6 +410,11 @@ header {
     &__text {
       font-size: 35px;
       text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    }
+    &__btn {
+      @include banner;
+      justify-content: center;
+      margin: 20px auto 0;
     }
   }
 }
@@ -337,6 +445,9 @@ footer {
           text-decoration: none;
           font-size: 12px;
           line-height: 32px;
+        }
+        a:hover {
+          text-decoration: underline;
         }
       }
     }
@@ -377,5 +488,6 @@ footer {
 }
 
 .sellBtn:hover {
-  opacity: 0.8;
+  opacity: .9;
+  transition: 200ms;
 }

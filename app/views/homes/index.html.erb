@@ -19,7 +19,11 @@
     </div>
   </div>
 </header>
+
 <div class="topContents">
+
+<%# 以下、６つのセクション %>
+<%# ①人生を変えるフリマアプリ %>
   <section class="mainVisual">
     <div class="mvContent">
       <h2 class="mvContent__title"><br>
@@ -28,10 +32,18 @@
       <p class="mvContent__text">
         FURIMAはだれでもかんたんに出品・購入できる<br>フリマアプリです
       </p>
-      <div class="mvContent__button">
+      <div class="mvContent__btn">
+        <%= link_to "#", class: "appStoreBtn" do %>
+          <%= image_tag 'logo/app-store.svg' %>
+        <% end %>
+        <%= link_to "#", class: "googlePlayBtn" do %>
+          <%= image_tag 'logo/google-play.svg' %>
+        <% end %>
       </div>
     </div>
   </section>
+
+<%# ②FURIMAが選ばれる3つの理由 %>
   <section class= "pict-reason">
     <h2 class="pict-reason__title">
       FURIMAが選ばれる3つの理由
@@ -78,6 +90,8 @@
       </li>
     </ul>
   </section>
+
+<%# ③会員数日本一 %>
   <section class="topMiddleDl">
     <div class="topMiddleDl-content">
       <h2 class="topMiddleDl-content__title">会員数日本一位</h2>
@@ -90,9 +104,17 @@
         ほしかったあの商品に出会えるかもしれません。
       </p>
       <div class="topMiddleDl-content__btn">
+        <%= link_to "#" do %>
+          <%= image_tag 'logo/app-store.svg', class:"appStoreBtn" %>
+        <% end %>
+        <%= link_to "#", class: "googlePlayBtn" do %>
+          <%= image_tag 'logo/google-play.svg' %>
+        <% end %>
       </div>
     </div>
   </section>
+
+<%# ④FURIMAの特徴 %>
   <section class="features">
     <h2 class="features__title">
       FURIMAの特徴
@@ -133,6 +155,8 @@
       </section>
     </div>
   </section>
+
+<%# ⑤ピックアップカテゴリー %>
   <section class="pickup">
     <h2 class="pickup__title">
       ピックアップカテゴリー
@@ -140,17 +164,152 @@
     <div class="pickup-contents">
       <div class="pickup-contents__head">
         <%= link_to "#" do %>
-        　<h3 class="pickup-contents__head-title">新規投稿商品</h3>
+          <h3 class="pickup-contents__head-title">新規投稿商品</h3>
         <% end %>
       </div>
       <div class="pickup-products">
-
+        <div class="pickup-products__item">
+          <%= link_to 'http://furima.tokyo/products/3' do %>
+            <figure class="pickup-products__item-img">
+              <%= image_tag 'pict/a007.png' %>
+            </figure>
+            <div class="pickup-products__item-content">
+              <h3 class="pickup-products__item-content--name">product3</h3>
+              <div class="pickup-products__item-content--detail">
+                <ul>
+                  <li>30000円</li>
+                  <li>
+                    <%= fa_icon("star") %>
+                    0
+                  </li>
+                </ul>
+                <p>(税込)</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="pickup-products__item">
+          <%= link_to 'http://furima.tokyo/products/2' do %>
+            <figure class="pickup-products__item-img">
+              <%= image_tag 'pict/a004.png' %>
+            </figure>
+            <div class="pickup-products__item-content">
+              <h3 class="pickup-products__item-content--name">product2</h3>
+              <div class="pickup-products__item-content--detail">
+                <ul>
+                  <li>20000円</li>
+                  <li>
+                    <%= fa_icon("star") %>
+                    0
+                  </li>
+                </ul>
+                <p>(税込)</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="pickup-products__item">
+          <%= link_to 'http://furima.tokyo/products/1' do %>
+            <figure class="pickup-products__item-img">
+              <%= image_tag 'pict/a001.png' %>
+            </figure>
+            <div class="pickup-products__item-content">
+              <h3 class="pickup-products__item-content--name">product1</h3>
+              <div class="pickup-products__item-content--detail">
+                <ul>
+                  <li>10000円</li>
+                  <li>
+                    <%= fa_icon("star") %>
+                    0
+                  </li>
+                </ul>
+                <p>(税込)</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </section>
+
+<%# ⑥ピックアップブランド %>
   <section class="pickup">
+    <h2 class="pickup__title">
+      ピックアップブランド
+    </h2>
+    <div class="pickup-contents">
+      <div class="pickup-contents__head">
+        <%= link_to "#" do %>
+          <h3 class="pickup-contents__head-title">アーカイバ</h3>
+        <% end %>
+      </div>
+      <div class="pickup-products">
+        <div class="pickup-products__item">
+          <%= link_to 'http://furima.tokyo/products/3' do %>
+            <figure class="pickup-products__item-img">
+              <%= image_tag 'pict/a007.png' %>
+            </figure>
+            <div class="pickup-products__item-content">
+              <h3 class="pickup-products__item-content--name">product3</h3>
+              <div class="pickup-products__item-content--detail">
+                <ul>
+                  <li>30000円</li>
+                  <li>
+                    <%= fa_icon("star") %>
+                    0
+                  </li>
+                </ul>
+                <p>(税込)</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="pickup-products__item">
+          <%= link_to 'http://furima.tokyo/products/2' do %>
+            <figure class="pickup-products__item-img">
+              <%= image_tag 'pict/a004.png' %>
+            </figure>
+            <div class="pickup-products__item-content">
+              <h3 class="pickup-products__item-content--name">product2</h3>
+              <div class="pickup-products__item-content--detail">
+                <ul>
+                  <li>20000円</li>
+                  <li>
+                    <%= fa_icon("star") %>
+                    0
+                  </li>
+                </ul>
+                <p>(税込)</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="pickup-products__item">
+          <%= link_to 'http://furima.tokyo/products/1' do %>
+            <figure class="pickup-products__item-img">
+              <%= image_tag 'pict/a001.png' %>
+            </figure>
+            <div class="pickup-products__item-content">
+              <h3 class="pickup-products__item-content--name">product1</h3>
+              <div class="pickup-products__item-content--detail">
+                <ul>
+                  <li>10000円</li>
+                  <li>
+                    <%= fa_icon("star") %>
+                    0
+                  </li>
+                </ul>
+                <p>(税込)</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </section>
 </div>
+
+<%# aside部分 %>
 <aside class="appBanner">
   <div class="appBanner-contents">
     <h2 class="appBanner-contents__title">
@@ -159,8 +318,17 @@
     <p class="appBanner-contents__text">
       今すぐ無料ダウンロード！
     </p>
+    <div class="appBanner-contents__btn">
+      <%= link_to "#", class: "appStoreBtn" do %>
+        <%= image_tag 'logo/app-store.svg' %>
+      <% end %>
+      <%= link_to "#", class: "googlePlayBtn" do %>
+        <%= image_tag 'logo/google-play.svg' %>
+      <% end %>
+    </div>
   </div>
 </aside>
+
 <footer>
   <ul class="footer-texts">
     <li class="footer-texts__content">
@@ -204,7 +372,7 @@
           <%= link_to "FURIMAガイド", "#" %>
         </li>
         <li>
-          <%= link_to "FURIMAロゴ用利用ガイドライン", "#" %>
+          <%= link_to "FURIMAロゴ利用ガイドライン", "#" %>
         </li>
         <li>
           <%= link_to "お知らせ", "#" %>
@@ -219,6 +387,8 @@
   </div>
   <p>© FURIMA</p>
 </footer>
+
+<%# 画面右下のモーダル %>
 <%= link_to "#" do %>
   <div class="sellBtn">
     <span class="sellBtn__text">出品する</span>
