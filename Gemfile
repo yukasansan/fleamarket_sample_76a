@@ -75,4 +75,4 @@ group :production do
 end
 
 gem 'rails-i18n'
-
+gem 'haml-rails'
