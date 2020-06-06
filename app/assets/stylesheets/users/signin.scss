@@ -1,0 +1,18 @@
+.user-sign__in {
+  margin: 0 auto;
+  width: 50%;
+  height: 100%;
+  .header_sign__in__logo {
+    text-align: center;
+    img {
+      width: 200px;
+      margin: 30px 80px;
+    }
+  }
+  &__title {
+    text-align: center;
+    background-color:white;
+    border-bottom: 1px solid lightgray;
+    padding: 40px 64px;
+  }
+}

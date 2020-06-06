@@ -35,6 +35,8 @@ body {
     }
   }
   &__title {
+    font-size: 22px;
+    font-weight: 600;
     text-align: center;
     height: 100px;
     line-height: 100px;
@@ -89,17 +91,5 @@ body {
         }
       }
     }
-  }
-  .red-btn {
-    background-color: red;
-    color: white;
-    border: 1px solid red;
-    display: block;
-    width: 100%;
-    line-height: 48px;
-    font-size: 14px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 32px;
   }
 }
