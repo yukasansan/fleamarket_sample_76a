@@ -49,18 +49,6 @@ img {
   vertical-align: bottom;
 }
 
-.displayNone {
-  display: none;
-}
-
-.categoryBtn:hover + .displayNone {
-  display: block;
-}
-
-.tree:hover {
-  display: show;
-}
-
 .top-header {
   padding: 0 60px;
   .header-contents {
