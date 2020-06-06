@@ -17,6 +17,155 @@
       <ul class="hcBottom__left">
         <li class="hcBottom__left--category">
           <%= link_to "カテゴリー", "#", id: "categoryBtn" %>
+            <div class="category-tree">
+              <ul class="category-tree__box">
+              <%# この辺りの重複部分は後で機能実装する際に消します！ %>
+                <li class="category-tree__box-item">
+                  <%= link_to "レディース", id:"1" %>
+                  <ul class="second-tree__box">
+                    <li class="second-tree__box-item">
+                      <ul class="third-tree__box">
+                        <li class="third-tree__box-item">
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="category-tree__box-item">
+                  <%= link_to "メンズ", id:"2" %>
+                  <ul class="second-tree__box">
+                    <li class="second-tree__box-item">
+                      <ul class="third-tree__box">
+                        <li class="third-tree__box-item">
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="category-tree__box-item">
+                  <%= link_to "ベビー・キッズ", id:"3" %>
+                  <ul class="second-tree__box">
+                    <li class="second-tree__box-item">
+                      <ul class="third-tree__box">
+                        <li class="third-tree__box-item">
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="category-tree__box-item">
+                  <%= link_to "インテリア・住まい・小物", id:"4" %>
+                  <ul class="second-tree__box">
+                    <li class="second-tree__box-item">
+                      <ul class="third-tree__box">
+                        <li class="third-tree__box-item">
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="category-tree__box-item">
+                  <%= link_to "本・音楽・ゲーム", id:"5" %>
+                  <ul class="second-tree__box">
+                    <li class="second-tree__box-item">
+                      <ul class="third-tree__box">
+                        <li class="third-tree__box-item">
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="category-tree__box-item">
+                  <%= link_to "おもちゃ・ホビー", id:"6" %>
+                  <ul class="second-tree__box">
+                    <li class="second-tree__box-item">
+                      <ul class="third-tree__box">
+                        <li class="third-tree__box-item">
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="category-tree__box-item">
+                  <%= link_to "コスメ・香水・美容", id:"7" %>
+                  <ul class="second-tree__box">
+                    <li class="second-tree__box-item">
+                      <ul class="third-tree__box">
+                        <li class="third-tree__box-item">
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="category-tree__box-item">
+                  <%= link_to "家電・スマホ・カメラ", id:"8" %>
+                  <ul class="second-tree__box">
+                    <li class="second-tree__box-item">
+                      <ul class="third-tree__box">
+                        <li class="third-tree__box-item">
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="category-tree__box-item">
+                  <%= link_to "スポーツ・レジャー", id:"9" %>
+                  <ul class="second-tree__box">
+                    <li class="second-tree__box-item">
+                      <ul class="third-tree__box">
+                        <li class="third-tree__box-item">
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="category-tree__box-item">
+                  <%= link_to "ハンドメイド", id:"10" %>
+                  <ul class="second-tree__box">
+                    <li class="second-tree__box-item">
+                      <ul class="third-tree__box">
+                        <li class="third-tree__box-item">
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="category-tree__box-item">
+                  <%= link_to "チケット", id:"11" %>
+                  <ul class="second-tree__box">
+                    <li class="second-tree__box-item">
+                      <ul class="third-tree__box">
+                        <li class="third-tree__box-item">
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="category-tree__box-item">
+                  <%= link_to "自動車", id:"12" %>
+                  <ul class="second-tree__box">
+                    <li class="second-tree__box-item">
+                      <ul class="third-tree__box">
+                        <li class="third-tree__box-item">
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="category-tree__box-item">
+                  <%= link_to "その他", id:"13" %>
+                  <ul class="second-tree__box">
+                    <li class="second-tree__box-item">
+                      <ul class="third-tree__box">
+                        <li class="third-tree__box-item">
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <%# ここまで消す %>
+              </ul>
+            </div>
         </li>
         <li class="hcBottom__left--brand">
           <%= link_to "ブランド", "#", id: "brandBtn" %>
@@ -42,50 +191,6 @@
     </div>
   </div>
 </header>
-
-<div class="tree displayNone">
-  <ul class="category__tree">
-    <li class="category__tree--item">
-      <%= link_to "レディース", id:"1" %>
-    </li>
-    <li class="category__tree--item">
-      <%= link_to "メンズ", id:"2" %>
-    </li>
-    <li class="category__tree--item">
-      <%= link_to "ベビー・キッズ", id:"3" %>
-    </li>
-    <li class="category__tree--item">
-      <%= link_to "インテリア・住まい・小物", id:"4" %>
-    </li>
-    <li class="category__tree--item">
-      <%= link_to "本・音楽・ゲーム", id:"5" %>
-    </li>
-    <li class="category__tree--item">
-      <%= link_to "おもちゃ・ホビー", id:"6" %>
-    </li>
-    <li class="category__tree--item">
-      <%= link_to "コスメ・香水・美容", id:"7" %>
-    </li>
-    <li class="category__tree--item">
-      <%= link_to "家電・スマホ・カメラ", id:"8" %>
-    </li>
-    <li class="category__tree--item">
-      <%= link_to "スポーツ・レジャー", id:"9" %>
-    </li>
-    <li class="category__tree--item">
-      <%= link_to "ハンドメイド", id:"10" %>
-    </li>
-    <li class="category__tree--item">
-      <%= link_to "チケット", id:"11" %>
-    </li>
-    <li class="category__tree--item">
-      <%= link_to "自動車", id:"12" %>
-    </li>
-    <li class="category__tree--item">
-      <%= link_to "その他", id:"13" %>
-    </li>
-  </ul>
-</div>
 
 <div class="topContents">
 <%# 以下、６つのセクション %>
@@ -230,23 +335,23 @@
     <div class="pickup-contents">
       <div class="pickup-contents__head">
         <%= link_to "#" do %>
-          <h3 class="pickup-contents__head-title">新規投稿商品</h3>
+          <h3 class="pickup-contents__head-title">新規投稿商品</h3> <%# 今日のカテゴリーに登録された商品を新しい順に3つ表示する？ %>
         <% end %>
       </div>
       <div class="pickup-products">
         <div class="pickup-products__item">
-          <%= link_to 'http://furima.tokyo/products/3' do %>
+          <%= link_to 'http://furima.tokyo/products/3' do %>  <%# ここはcategoriesテーブルに紐づいた商品のイメージ画像を入れる？ %>
             <figure class="pickup-products__item-img">
               <%= image_tag 'pict/a007.png' %>
             </figure>
             <div class="pickup-products__item-content">
-              <h3 class="pickup-products__item-content--name">product3</h3>
+              <h3 class="pickup-products__item-content--name">product3</h3> <%# ここはcategoriesテーブルに紐づいた商品の名前を入れる？ %>
               <div class="pickup-products__item-content--detail">
                 <ul>
-                  <li>30000円</li>
+                  <li>30000円</li>  <%# ここはcategoriesテーブルに紐づいたitemsテーブルのpriceを入れる？ %>
                   <li>
                     <%= fa_icon("star") %>
-                    0
+                    0 <%# お気に入りの数？ %>
                   </li>
                 </ul>
                 <p>(税込)</p>
@@ -254,6 +359,7 @@
             </div>
           <% end %>
         </div>
+        <%# 下記の2つはeachでまとめるので削除 %>
         <div class="pickup-products__item">
           <%= link_to 'http://furima.tokyo/products/2' do %>
             <figure class="pickup-products__item-img">
@@ -306,23 +412,23 @@
     <div class="pickup-contents">
       <div class="pickup-contents__head">
         <%= link_to "#" do %>
-          <h3 class="pickup-contents__head-title">アーカイバ</h3>
+          <h3 class="pickup-contents__head-title">アーカイバ</h3> <%# 今日のブランドに登録されている商品をランダム？で3つ表示する？ %>
         <% end %>
       </div>
       <div class="pickup-products">
         <div class="pickup-products__item">
-          <%= link_to 'http://furima.tokyo/products/3' do %>
+          <%= link_to 'http://furima.tokyo/products/3' do %> <%# ここはbrandsテーブルに紐づいた商品の画像を入れる？ %>
             <figure class="pickup-products__item-img">
               <%= image_tag 'pict/a007.png' %>
             </figure>
             <div class="pickup-products__item-content">
-              <h3 class="pickup-products__item-content--name">product3</h3>
+              <h3 class="pickup-products__item-content--name">product3</h3> <%# ここはbrandsテーブルに紐づいた商品の名前を入れる？ %>
               <div class="pickup-products__item-content--detail">
                 <ul>
-                  <li>30000円</li>
+                  <li>30000円</li> <%# ここはbrandsテーブルに紐づいたitemsテーブルのpriceを入れる？ %>
                   <li>
                     <%= fa_icon("star") %>
-                    0
+                    0 <%# お気に入りの数？ %>
                   </li>
                 </ul>
                 <p>(税込)</p>
@@ -330,6 +436,7 @@
             </div>
           <% end %>
         </div>
+        <%# 下記の2つはeachでまとめるので削除 %>
         <div class="pickup-products__item">
           <%= link_to 'http://furima.tokyo/products/2' do %>
             <figure class="pickup-products__item-img">

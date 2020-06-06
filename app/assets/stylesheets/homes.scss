@@ -39,27 +39,26 @@
   line-height: 32px;
 }
 
+@mixin font-top {
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+  color: #fff;
+}
+
 img {
   width: 100%;
   vertical-align: bottom;
 }
 
 .displayNone {
-  // display: none;
+  display: none;
 }
 
-.tree {
-  z-index: 2;
-  position: absolute;
-  background-color: #fff;
-  width: 240px;
-  top: 40px;
-  .categoryTree {
-    background-color: #fff;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
+.categoryBtn:hover + .displayNone {
+  display: block;
+}
+
+.tree:hover {
+  display: show;
 }
 
 .top-header {
@@ -120,6 +119,51 @@ img {
         &--category {
           display: flex;
           line-height: 38px;
+          &:hover > .category-tree {
+            display: block;
+          }
+          .category-tree {
+            display: none;
+            position: absolute;
+            top: 100%;
+            z-index: 1;
+            background-color: #fff;
+            &__box {
+              width: 240px;
+              &-item {
+                display: block;
+                width: 240px;
+                padding: 3px 8px 3px 5px;
+                border-bottom: 1px solid #f8f8f8;
+                &:hover > .second-tree__box {
+                  display: block;
+                }
+                .second-tree__box {
+                  position: absolute;
+                  top: 0px;
+                  left: 100%;
+                  display: none;
+                  background-color: #fff;
+                  &-item {
+                    height: 600px;
+                    width: 240px;
+                    &:hover > .third-tree__box {
+                      display: block;
+                    }
+                    .third-tree__box {
+                      position: absolute;
+                      top: 0px;
+                      left: 100%;
+                      display: none;
+                      background-color: #fff;
+                      height: 600px;
+                      width: 240px;
+                    }
+                  }
+                }
+              }
+            }
+          }
           a {
             @include top_a_left
           }
@@ -182,15 +226,13 @@ img {
       margin: 0 auto;
       padding: 35px 0 0 0;
       &__title {
-        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        @include font-top;
         font-size: 60px;
         line-height: 1.2;
-        color: #fff;
       }
       &__text {
-        text-shadow: 0 0 5px rgba(0,0,0,0.4);
+        @include font-top;
         font-size: 18px;
-        color: #fff;
         line-height: 1.77778;
         margin: 16px 0 0 0;
       }
@@ -278,8 +320,7 @@ img {
     display: flex;
     align-items: center;
     &-content {
-      color: #fff;
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      @include font-top;
       text-align: left;
       max-width: 1040px;
       width: 100%;
@@ -389,7 +430,9 @@ img {
         &__item {
           width: 220px;
           display: inline-block;
-          float: left;
+          &:hover {
+          opacity: 0.5;
+          }
           a {
           background-color: #fff;
           display: inline-block;
@@ -466,17 +509,16 @@ img {
   background-size: cover;
   background-position: center;
   &-contents {
-    color: #fff;
     text-align: center;
     &__title {
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
+      @include font-top;
       font-size: 24px;
       font-weight: bold;
       line-height: 1.4;
     }
     &__text {
+      @include font-top;
       font-size: 35px;
-      text-shadow: 0 0 5px rgba(0,0,0,0.4);
     }
     &__btn {
       @include banner;
@@ -538,6 +580,10 @@ footer {
   right: 32px;
   position: fixed;
   padding: 15px;
+  &:hover {
+    opacity: .9;
+    transition: 200ms;
+  }
   &__text {
     color: #fff;
     display: block;
@@ -548,9 +594,4 @@ footer {
   &__icon {
     width: 60%;
   }
-}
-
-.sellBtn:hover {
-  opacity: .9;
-  transition: 200ms;
 }
