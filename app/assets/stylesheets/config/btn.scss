@@ -1,0 +1,9 @@
+.red-btn {
+  @include btn(red);
+}
+
+.blue-btn {
+  @include btn(#0099e8);
+  max-width: 320px;
+  margin: 0 auto;
+}

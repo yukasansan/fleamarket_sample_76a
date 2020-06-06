@@ -1,0 +1,12 @@
+@mixin btn($color) {
+  background-color: $color;
+  color: white;
+  border: 1px solid $color;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 32px;
+}
