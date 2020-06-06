@@ -1,8 +1,9 @@
 .user-sign__up
   .header_logo
-    = image_tag 'logo/logo.png'
+    = link_to root_path  do
+      = image_tag 'logo/logo.png'
   .user-sign__up__title
-    %h2 会員情報入力
+    %h2.form-title 会員情報入力
   .user-sign__up__form
     = form_for(@user, url: user_registration_path) do |f|
       = render "devise/shared/error_messages", resource: @user
@@ -61,4 +62,5 @@
           = f.submit "次へ進む", class:"red-btn"
       / user-sign__up__form__content
   / user-sign__up__form
+  = render partial: 'devise/footer'
 / user-sign__up
