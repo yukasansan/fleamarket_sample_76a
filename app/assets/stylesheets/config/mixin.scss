@@ -11,3 +11,42 @@
   margin-top: 32px;
   text-decoration: none;
 }
+
+@mixin banner {
+  display: flex;
+  .appStoreBtn {
+    width: 180px;
+  }
+  .googlePlayBtn {
+    width: 180px;
+  }
+  a:first-child {
+    margin-right: 10px;
+  }
+  a:hover {
+    opacity: 0.5;
+  }
+}
+
+@mixin top_a_left {
+  color: #333;
+  text-decoration: none;
+  line-height: 32px;
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: 18px;
+  padding-right: 30px;
+}
+
+@mixin top_a_right {
+  display: flex;
+  align-items: center;
+  color: #333;
+  text-decoration: none;
+  line-height: 32px;
+}
+
+@mixin font-top {
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+  color: #fff;
+}
