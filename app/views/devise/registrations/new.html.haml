@@ -1,63 +1,64 @@
-.user-sign__up
-  .header_logo
-    = link_to root_path  do
-      = image_tag 'logo/logo.png'
-  .user-sign__up__title
-    %h2.form-title 会員情報入力
-  .user-sign__up__form
-    = form_for(@user, url: user_registration_path) do |f|
-      = render "devise/shared/error_messages", resource: @user
-      .user-sign__up__form__content
-        .field
-          %label ニックネーム
-          %span.form-require 必須
-          %br/
-          = f.text_field :nickname, placeholder:"例）ふりーまん", required:"required", class:"input-form"
-        .field
-          %label メールアドレス
-          %span.form-require 必須
-          %br/
-          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"PC・携帯どちらでも可", required:"required", class:"input-form"
-        .field
-          %label パスワード
-          %span.form-require 必須
-          %br/
-          = f.password_field :password, autocomplete: "new-password", placeholder:"7文字以上の半角英数字", required:"required", class:"input-form"
-          %p.note ※英字と数字の両方を含めて設定してください
-        .field
-          %label 確認用パスワード
-          %span.form-require 必須
-          %br/
-          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"7文字以上の半角英数字", required:"required", class:"input-form"
-        %div
-          %p#identification 本人確認
-          %p.single-text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-        .field
-          %label お名前(全角)
-          %span.form-require 必須
-          %br/
-          = f.text_field :last_name, placeholder:"例）佐藤", required:"required", class:"input-form__name"
-          = f.text_field :first_name, placeholder:"例）祐介", required:"required", class:"input-form__name"
-        .field
-          %label お名前かな(全角)
-          %span.form-require 必須
-          %br/
-          = f.text_field :last_name_kana, placeholder:"例）さとう", required:"required", class:"input-form__name"
-          = f.text_field :first_name_kana, placeholder:"例）ゆうすけ", required:"required", class:"input-form__name"
-        .field
-          %label 電話番号
-          %span.form-require 必須
-          %br/
-          = f.text_field :telephone, placeholder:"11桁の数値を入力してください", required:"required", class:"input-form"
-        .field
-          %label 生年月日
-          %span.form-require 必須
-          %br/
-          = f.text_field :birthyear, autofocus: true, placeholder:"----", required:"required", class:"input-form__birth"
-          年
-          \#{f.text_field :birthmonth, autofocus: true, placeholder:"--", required:"required", class:"input-form__birth"}月
-          \#{f.text_field :birthday, autofocus: true, placeholder:"--", required:"required", class:"input-form__birth"}日
-        %p.note ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-        .actions
-          = f.submit "次へ進む", class:"red-btn"
-  = render partial: 'devise/footer'
+.main
+  .user-sign__up
+    .header_logo
+      = link_to root_path  do
+        = image_tag 'logo/logo.png'
+    .user-sign__up__title
+      %h2.form-title 会員情報入力
+    .user-sign__up__form
+      = form_for(@user, url: user_registration_path) do |f|
+        = render "devise/shared/error_messages", resource: @user
+        .user-sign__up__form__content
+          .field
+            %label ニックネーム
+            %span.form-require 必須
+            %br/
+            = f.text_field :nickname, placeholder:"例）ふりーまん", required:"required", class:"input-form"
+          .field
+            %label メールアドレス
+            %span.form-require 必須
+            %br/
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"PC・携帯どちらでも可", required:"required", class:"input-form"
+          .field
+            %label パスワード
+            %span.form-require 必須
+            %br/
+            = f.password_field :password, autocomplete: "new-password", placeholder:"7文字以上の半角英数字", required:"required", class:"input-form"
+            %p.note ※英字と数字の両方を含めて設定してください
+          .field
+            %label 確認用パスワード
+            %span.form-require 必須
+            %br/
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"7文字以上の半角英数字", required:"required", class:"input-form"
+          %div
+            %p#identification 本人確認
+            %p.single-text 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .field
+            %label お名前(全角)
+            %span.form-require 必須
+            %br/
+            = f.text_field :last_name, placeholder:"例）佐藤", required:"required", class:"input-form__name"
+            = f.text_field :first_name, placeholder:"例）祐介", required:"required", class:"input-form__name"
+          .field
+            %label お名前かな(全角)
+            %span.form-require 必須
+            %br/
+            = f.text_field :last_name_kana, placeholder:"例）さとう", required:"required", class:"input-form__name"
+            = f.text_field :first_name_kana, placeholder:"例）ゆうすけ", required:"required", class:"input-form__name"
+          .field
+            %label 電話番号
+            %span.form-require 必須
+            %br/
+            = f.text_field :telephone, placeholder:"11桁の数値を入力してください", required:"required", class:"input-form"
+          .field
+            %label 生年月日
+            %span.form-require 必須
+            %br/
+            = f.text_field :birthyear, autofocus: true, placeholder:"----", required:"required", class:"input-form__birth"
+            年
+            \#{f.text_field :birthmonth, autofocus: true, placeholder:"--", required:"required", class:"input-form__birth"}月
+            \#{f.text_field :birthday, autofocus: true, placeholder:"--", required:"required", class:"input-form__birth"}日
+          %p.note ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+          .actions
+            = f.submit "次へ進む", class:"red-btn"
+    = render partial: 'devise/footer'

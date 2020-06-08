@@ -4,10 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #F5F5F5;
-}
-
 .note {
   margin: 8px;
   font-size: 14px;
@@ -24,6 +20,9 @@ body {
   padding: 8px;
 }
 
+.main {
+  background-color: #F5F5F5;
+}
 .user-sign__up {
   margin: 0 auto;
   width: 50%;
