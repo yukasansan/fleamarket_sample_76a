@@ -1,0 +1,24 @@
+.user-sign__in
+  .header_sign__in__logo
+    = link_to root_path  do
+      = image_tag 'logo/logo.png'
+  %section.confirmation-body
+    %p.note アカウントをお持ちでない方はこちら
+    = link_to "新規館員登録", new_user_registration_path, class:"blue-btn"
+  .user-sign__up__form
+    -# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .user-sign__up__form__content
+        .field
+          %label メールアドレス
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", required:"required", class:"input-form"
+        .field
+          %label パスワード
+          %br/
+          = f.password_field :password, autocomplete: "current-password", required:"required", class:"input-form"
+        .actions
+          = f.submit "ログイン", class:"red-btn"
+      / user-sign__up__form__content
+  / user-sign__up__form
+  = render partial: 'devise/footer'
+/ user-sign__up
