@@ -5,10 +5,17 @@
         = image_tag 'logo/logo.png'
     .user-sign__in__title
       %p.note アカウントをお持ちでない方はこちら
-      = link_to "新規館員登録", new_user_registration_path, class:"blue-btn"
+      = link_to "新規会員登録", new_user_registration_path, class:"blue-btn"
     .user-sign__up__form
-      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        .user-sign__up__form__content
+      .user-sign__up__form__content
+        .new-user_registration
+          .gmail-btn
+            = fa_icon("google")
+            = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
+          .facebook-btn
+            = fa_icon("facebook-square")
+            = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
           .field
             %label メールアドレス
             %br/
