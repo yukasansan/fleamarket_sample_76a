@@ -19,10 +19,15 @@
             %span.form-require 必須
             %br/
             = f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"PC・携帯どちらでも可", required:"required", class:"input-form"
+          - if @sns_id.present?
+            = hidden_field_tag :sns_auth, true
+          - else
           .field
             %label パスワード
             %span.form-require 必須
             %br/
+            - if @minimum_password_length
+              %em
             = f.password_field :password, autocomplete: "new-password", placeholder:"7文字以上の半角英数字", required:"required", class:"input-form"
             %p.note ※英字と数字の両方を含めて設定してください
           .field
@@ -56,8 +61,10 @@
             %br/
             = f.text_field :birthyear, autofocus: true, placeholder:"----", required:"required", class:"input-form__birth"
             年
-            \#{f.text_field :birthmonth, autofocus: true, placeholder:"--", required:"required", class:"input-form__birth"}月
-            \#{f.text_field :birthday, autofocus: true, placeholder:"--", required:"required", class:"input-form__birth"}日
+            = f.text_field :birthmonth, autofocus: true, placeholder:"--", required:"required", class:"input-form__birth"
+            月
+            = f.text_field :birthday, autofocus: true, placeholder:"--", required:"required", class:"input-form__birth"
+            日
           %p.note ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
           .actions
             = f.submit "次へ進む", class:"red-btn"

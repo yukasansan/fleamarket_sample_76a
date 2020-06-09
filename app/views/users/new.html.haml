@@ -1,0 +1,27 @@
+.main
+  .user-sign__up
+    .header_logo
+      = link_to root_path  do
+        = image_tag 'logo/logo.png'
+    .user-sign__up__title
+      %h2.form-title 新規会員登録
+    .user-sign__up__form
+      .user-sign__up__form__content
+        .new-user_registration
+          .mail-btn
+            = fa_icon("envelope")
+            = link_to 'メールアドレスで登録', new_user_registration_path
+          .gmail-btn
+            = fa_icon("google")
+            = link_to 'Googleで登録', user_google_oauth2_omniauth_authorize_path, method: :post
+          .facebook-btn
+            = fa_icon("facebook-square")
+            = link_to 'Facebookで登録', user_facebook_omniauth_authorize_path, method: :post
+          .form-group
+            %p.form-info__text
+              登録することで、
+              =link_to "利用規約"
+              と
+              =link_to "プライバシーポリシー"
+              に同意したものとみなされます。
+  = render partial: 'devise/footer'
