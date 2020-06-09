@@ -20,12 +20,6 @@ header {
     width: 100%;
     height: 560px;
     background-image: url('pict/bg-mainVisual-pict_pc.jpg') top center / cover no-repeat;
-
-    background: url( "/character.png" ) top right / 75px 76px repeat-x #D36015 ;
-
-    background-image:
-      linear-gradient(to bottom, rgba(255,255,0,0.5), rgba(0,0,255,0.5)),
-      url('https://mdn.mozillademos.org/files/7693/catfront.png');
     position: relative;
     padding: 0 60px;
     display: flex;
