@@ -1,11 +1,10 @@
 class ItemsController < ApplicationController
-<<<<<<< HEAD
+
   def index
   end
   
   def new
   end
-=======
   
   def index
   end
@@ -16,5 +15,4 @@ class ItemsController < ApplicationController
   def confirmation
   end
 
->>>>>>> master
 end

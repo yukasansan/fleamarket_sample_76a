@@ -19,10 +19,7 @@ header {
   .mainVisual {
     width: 100%;
     height: 560px;
-    background-image: url('pict/bg-mainVisual-pict_pc.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top center;
+    background-image: url('pict/bg-mainVisual-pict_pc.jpg') top center / cover no-repeat;
     position: relative;
     padding: 0 60px;
     display: flex;
