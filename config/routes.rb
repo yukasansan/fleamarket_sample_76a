@@ -6,8 +6,7 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
-  root to: 'homes#index'
-  resources :homes, only: [:index, :show]
+  root to: 'items#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :items do
