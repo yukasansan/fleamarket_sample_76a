@@ -1,0 +1,37 @@
+%body
+  %header
+    .header-contents
+      %div
+  .contents
+    .mainVisual
+    %div
+      .pict-reason
+        FURIMAが選ばれる3つの理由
+        .pict-reason-01
+        .pict-reason-02
+        .pict-reason-03
+      .topMiddleDl-pict
+      = image_tag('icon/icon-01.png')
+      = image_tag('icon/icon-03.png')
+      = image_tag('icon/icon-04.png')
+      %aside.appBanner
+      %footer
+        .footer__left
+          FURIMAについて
+          会社概要（運営会社）
+          プライバシーポリシー
+          FURIMA利用規約
+          ポイントに関する特約
+        .footer__center
+          FURIMAを見る
+          カテゴリー一覧
+          ブランド一覧
+        .footer__right
+          ヘルプ＆ガイド
+          FURIMAガイド
+          FURIMAロゴ用利用ガイドライン
+          お知らせ
+      = link_to "#" do
+        .sellBtn
+          %span.sellBtn__text 出品する
+          = image_tag 'icon/icon_camera.png', size: '54x54', class:"sellBtn_icon"
