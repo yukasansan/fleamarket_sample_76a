@@ -1,2 +1,20 @@
-%h2 登録が完了しました
-= link_to "トップへ戻る", root_path
+.main
+  .user-sign__up
+    .header_logo
+      = link_to root_path  do
+        = image_tag 'logo/logo.png'
+    .user-sign__up__title
+      %h2.form-title 登録が完了しました
+    .user-sign__up__form
+      .user-sign__up__form__content
+        .new-user_registration
+          .mail-btn
+            = link_to "トップへ戻る", root_path
+          .form-group
+            %p.form-info__text
+              登録することで、
+              =link_to "利用規約"
+              と
+              =link_to "プライバシーポリシー"
+              に同意したものとみなされます。
+  = render partial: 'devise/footer'
