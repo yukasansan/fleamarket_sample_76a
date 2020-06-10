@@ -96,6 +96,7 @@
             margin-top: 16px;
             margin-bottom: 32px;
             padding: 13px 16px;
+            border: 1px solid #ccc;
           }
           .product-name {
             font-size: 14px;
@@ -124,6 +125,7 @@
             padding: 13px 16px;
             resize: vertical;
             margin-top: 16px;
+            border: 1px solid #ccc;
           }
           .product-explanation {
             font-size: 14px;
@@ -226,6 +228,8 @@
             height: 50px;
             margin-top: 16px;
             margin-bottom: 32px;
+            padding: 0 16px;
+            border: 1px solid #ccc;
           }
         }
         &-bottom {
@@ -438,6 +442,7 @@
               height: 48px;
               text-align: right; 
               padding: 0 16px;
+              border: 1px solid #ccc;
             }
           }
           &--fee {
