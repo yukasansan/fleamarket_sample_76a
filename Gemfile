@@ -75,9 +75,10 @@ gem 'font-awesome-rails'
 group :production do
   gem 'unicorn'
 end
+
+gem 'payjp'
 gem 'haml-rails'
 gem 'erb2haml'
-
 gem 'rails-i18n'
 gem 'haml-rails'
 gem 'omniauth-facebook'

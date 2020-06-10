@@ -15,4 +15,10 @@ Rails.application.routes.draw do
       get 'confirmation'
     end
   end
+  resources :mypage, only: [:index] do
+    collection do
+      get 'logout'
+    end
+  end
+  resources :cards, only: [:new]
 end

@@ -1,0 +1,157 @@
+
+.usars-form{
+  width:700px;
+  height:640px;
+  background-color:#ffffff;
+  margin-left:45px;
+  
+  .form-required{
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+    background-color: red;
+  }
+
+  h1{
+    height:49px;
+    text-align: center;
+    font-size:24px;
+    border-bottom: solid 2px #f3f3f3;
+    padding-top: 7px;
+  }
+  .information-content{
+    height:510px;
+    background-color:#ffffff;
+    display: flex;
+
+
+    .usar-informations{
+      height:407px;
+      width:343px;
+      margin: 0 auto;
+      top:50px;
+      
+ 
+      &__card-number{
+        height:98px;
+        background-color:#fff;
+        margin-top: 23px;
+
+        input{
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          width:100%;
+          font-size: 16px;
+        }
+        
+
+        ul{
+          height:30px;
+          margin-top: 12px;
+          
+          li{
+            display:inline-block;
+            
+          }
+          
+        
+          }
+        }      
+      
+     
+      &__expiration{
+        height:70px;
+        margin-top: 33px;
+        
+    
+        &__select-month{
+          display: flex;
+
+        .month{
+          margin-top: 12px;
+        }
+        
+        .select{
+        position: relative;
+        z-index: 2;
+        height: 48px;
+        padding: 0 46px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        font-size: 16px;   
+        cursor: pointer;
+
+       
+       }
+      }
+        &__password{
+          margin-top: 20px;
+        
+          
+       input{
+            height: 48px;
+            padding: 10px 16px 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            background: #fff;
+            line-height: 1.5;
+            width:100%;
+            font-size: 16px;
+          }
+        }
+
+        &__card-back{
+          text-align: right;
+          color: #0099e8;
+          display: block;
+           
+          .question{
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #0099e8;
+            color: #fff;
+            line-height: 14px;
+            font-size: 14px;
+            text-align: center;
+          }
+        }
+        button{
+          margin-top: 32px;
+          text-align: center;
+          background-color:#3BC9CE;
+          width:350px;
+          height:51px;
+          border-radius: 4px;
+          border:none;
+          cursor: pointer;
+          margin-top: 50px;
+          color:#ffffff;
+          border-color:#3BC9CE;
+
+        }
+
+    }
+  }
+}
+
+}
+
+.usar-informations__expiration__card-security#card{ 
+  display: none;
+ }
+.usar-informations__expiration__card-back{ 
+  &:hover + .usar-informations__expiration__card-security#card{
+      display: block;
+ }
+  
+}
+
