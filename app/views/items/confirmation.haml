@@ -28,7 +28,7 @@
             %section.pay-method
               .pay-method__inner
                 %h3 支払い方法
-                = link_to root_path do
+                = link_to new_card_path do
                   %p.pay-method__inner-registration
                     = fa_icon 'plus-circle'
                     %span.pay-method__inner-registration--text
@@ -40,11 +40,9 @@
                 = link_to '変更する', root_path, class:"change-address"
               .shipping-address__inner-info
                 %p
-                  -#  ↓機能実装時に= current_user.post_cord?に変更
-                  〒123-4567
+                  = "〒 #{current_user.address[:post_cord]}"
                   %br
-                  -# ↓機能実装時に= current_user.prefecture_id + current_user.city + current_user.adderess + current_user.building?に変更
-                  田中県 田中市 田中町田中123
+                  = current_user.address[:prefecture_id] + current_user.address[:city] + current_user.address[:address] + current_user.address[:building]
                   %br
                   = current_user.last_name + " " + current_user.first_name
             .purchase-btn
