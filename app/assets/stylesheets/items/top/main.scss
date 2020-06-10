@@ -49,16 +49,16 @@ img {
       margin-bottom: 25px;
       padding-bottom: 15px;
       position: relative;
-    }
-    &__title::after {
-      content: "";
-      width: 70px;
-      height: 4px;
-      background-color: #3CCACE;
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
+      &::after {
+        content: "";
+        width: 70px;
+        height: 4px;
+        background-color: #3CCACE;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
     &__lists {
       text-align: center;
@@ -149,16 +149,16 @@ img {
       margin-bottom: 25px;
       padding-bottom: 15px;
       position: relative;
-    }
-    &-title::after {
-      content: "";
-      width: 70px;
-      height: 4px;
-      background-color: #3CCACE;
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
+      &::after {
+        content: "";
+        width: 70px;
+        height: 4px;
+        background-color: #3CCACE;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
     &__contents {
       max-width: calc(1040px + 20px);
