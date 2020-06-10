@@ -1,0 +1,94 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.note {
+  margin: 8px;
+  font-size: 14px;
+  color: rgb(126, 123, 123);
+}
+
+#identification {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 8px;
+}
+.single-text {
+  font-size: 14px;
+  padding: 8px;
+}
+
+.main {
+  background-color: #F5F5F5;
+}
+.user-sign__up {
+  margin: 0 auto;
+  width: 50%;
+  height: 100%;
+  .header_logo {
+    img {
+      width: 200px;
+      margin: 30px 80px;
+    }
+  }
+  &__title {
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    height: 100px;
+    line-height: 100px;
+    width: 100%;
+    background-color:white;
+    border-bottom: 1px solid lightgray;
+  }
+  &__form {
+    background-color: white;
+    padding: 40px 40px 64px;
+    &__content {
+      margin: 0 auto;
+      max-width: 320px;
+    }
+    .field {
+      margin: 20px auto;
+      label {
+        font-weight: 600;
+        font-size: 12px;
+        margin-right: 10px;
+      }
+      .form-require {
+        background-color: red;
+        color: white;
+        border-radius: 2px;
+        font-size: 14px;
+        padding: 0 4px;
+        font-weight: 600;
+        display: inline-block;
+      }
+      .input-form {
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        width: 100%;
+        margin-top: 8px;
+        &__name {
+          width: calc(50% - 15px);
+          height: 48px;
+          padding: 10px 16px 8px;
+          margin-top: 8px;
+        }
+        &__birth {
+          width: calc(30% - 20px);
+          height: 48px;
+          padding: 10px 16px 8px;
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+}
