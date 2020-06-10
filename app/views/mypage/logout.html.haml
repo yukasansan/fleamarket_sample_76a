@@ -1,4 +1,8 @@
-.wrapper
+= render partial: "items/header"
+.wrapper__mypage
   = render partial: 'leftlist'
   .logout
-    %button.btn-default.btn-bule{:type => "submit"} ログアウト
+    .logout__content
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class:'blue-btn'
+= render partial: "items/aside"
+= render partial: "items/footer"

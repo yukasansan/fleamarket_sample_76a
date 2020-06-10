@@ -1,10 +1,11 @@
-.wrapper
+= render partial: "items/header"
+.wrapper__mypage
   = render partial: 'mypage/leftlist'
-  .usars-form 
+  .users-form 
     %h1 クレジットカード情報入力
     .information-content
-      .usar-informations
-        .usar-informations__card-number
+      .user-informations
+        .user-informations__card-number
           %label カード番号
           %span.form-required 必須
           %input{type: "text", placeholder:"半角数字のみ" }
@@ -24,10 +25,10 @@
             %li.card--discover
               = image_tag("card/discover.svg" , size:"42x30")
               
-        .usar-informations__expiration
+        .user-informations__expiration
           %label 有効期限
           %span.form-required 必須
-          .usar-informations__expiration__select-month
+          .user-informations__expiration__select-month
             %select#exp_month{name: "exp_month", type: "text", class:"select"}
               %option{value: "1"}01
               %option{value: "2"}02
@@ -42,7 +43,7 @@
               %option{value: "11"}11
               %option{value: "12"}12
             %span.month 月
-            .usar-informations__expiration__select__year
+            .user-informations__expiration__select__year
               %select#exp_year{name: "exp_year", type: "text" , class:"select"}
                 %option{value: "2019"}19
                 %option{value: "2020"}20
@@ -57,20 +58,17 @@
                 %option{value: "2029"}29
               %spam 年
               
-          .usar-informations__expiration__password
+          .user-informations__expiration__password
             %label
               セキリュティコード
             %span.form-required  必須
             %input{type: "text", placeholder:"カード背面４桁もしくは３桁の番号" }
-            .usar-informations__expiration__card-back
+            .user-informations__expiration__card-back
               %span.question ?
               カードの裏面の番号とは？
-            .usar-informations__expiration__card-security#card
+            .user-informations__expiration__card-security#card
               %text カードの裏面をご参照ください。
               =image_tag("card/seq-card_3.png" , size:"240x105",)
-
-           
           %button.btn-default.btn-bule{:type => "submit"} 登録する
-            
-            
-           
+= render partial: "items/aside"
+= render partial: "items/footer"

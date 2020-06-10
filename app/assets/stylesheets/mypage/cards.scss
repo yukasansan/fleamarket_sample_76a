@@ -1,5 +1,4 @@
-
-.usars-form{
+.users-form{
   width:700px;
   height:640px;
   background-color:#ffffff;
@@ -28,7 +27,7 @@
     display: flex;
 
 
-    .usar-informations{
+    .user-informations{
       height:407px;
       width:343px;
       margin: 0 auto;
@@ -58,26 +57,22 @@
           
           li{
             display:inline-block;
-            
+            img {
+              width: 42px;
+            }
           }
           
         
           }
         }      
-      
-     
       &__expiration{
         height:70px;
         margin-top: 33px;
-        
-    
         &__select-month{
           display: flex;
-
         .month{
           margin-top: 12px;
         }
-        
         .select{
         position: relative;
         z-index: 2;
@@ -87,15 +82,11 @@
         border: 1px solid #ccc;
         font-size: 16px;   
         cursor: pointer;
-
-       
-       }
+        }
       }
         &__password{
           margin-top: 20px;
-        
-          
-       input{
+        input {
             height: 48px;
             padding: 10px 16px 8px;
             border-radius: 4px;
@@ -111,7 +102,6 @@
           text-align: right;
           color: #0099e8;
           display: block;
-           
           .question{
             display: inline-block;
             width: 14px;
@@ -122,6 +112,11 @@
             line-height: 14px;
             font-size: 14px;
             text-align: center;
+          }
+        }
+        &__card-security {
+          img {
+            width: 240px;
           }
         }
         button{
@@ -136,22 +131,19 @@
           margin-top: 50px;
           color:#ffffff;
           border-color:#3BC9CE;
-
         }
-
+      }
     }
   }
 }
 
-}
-
-.usar-informations__expiration__card-security#card{ 
+.user-informations__expiration__card-security#card{ 
   display: none;
- }
-.usar-informations__expiration__card-back{ 
-  &:hover + .usar-informations__expiration__card-security#card{
-      display: block;
- }
+  }
+.user-informations__expiration__card-back{ 
+  &:hover + .user-informations__expiration__card-security#card{
+    display: block;
+  }
   
 }
 

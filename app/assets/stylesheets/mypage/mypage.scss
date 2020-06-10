@@ -1,0 +1,115 @@
+.wrapper__mypage{
+  display: flex;
+  width: 100vw;
+  background-color:#F8F8F8;
+  height: auto;
+  padding: 40px 0;
+  .left-menu{
+    width: 280px;
+    height: auto;
+    margin-left: 200px;
+    &__list{
+      display: block;
+      li{
+        display: block;
+        min-height: 48px;
+        padding: 16px;
+        background:#ffffff;
+        font-size: 14px;
+        position: relative;
+        border-bottom: 1px solid #F3F3F3;
+        &:hover{
+          background-color:#eeeeee;
+        }
+      }
+    }
+    a {
+      touch-action: manipulation;
+      color: #333;
+    }
+  }
+  .right-contents{
+    height: 900px;
+    width: 700px;
+    margin-left: 47px;
+    background-color:#F8F8F8;
+    font-size: 0;
+    &__user-icon {
+      background-image: image-url(https://cdn.pixabay.com/photo/2020/06/06/11/50/sky-5266272_1280.jpg);
+      height:200px;
+      position: relative;
+      padding: 20px;
+      &__image {
+        text-align: center;
+        border-radius: 50px;
+        position: absolute;
+        top: 25%;
+        left: 0;
+        right: 0;
+        figure {
+          overflow: hidden;
+          width: 60px;
+          height: 60px;
+          margin: 0 auto;
+          border-radius: 50%;
+        }
+        .bold {
+          margin: 8px 0 0;
+          font-size: 14px;
+          font-weight: 600;
+        }
+      &__user-eva{
+        text-align: center;
+        font-size: 16px;
+      } 
+    }
+  }
+    &__to-do-list{
+      background-color:#ffffff;
+      height:300px;
+      h1 {
+        font-size:16px;
+        line-height: 72px;
+        text-align: center;
+      }
+      li {
+        font-size: 16px;
+        line-height: 16px;
+        color:#cccccc;
+        text-align: center;
+        cursor: pointer;
+        img {
+          height: 90px;
+          width: 90px;
+        }
+      }
+    }
+    &__purchase{
+      background-color: #ffffff;
+      height:350px;
+      margin-top:50px;
+      line-height: 72px;
+      font-size:16px;
+      text-align: center;
+      li{
+        font-size:16px;
+        line-height:16px;
+        color:#cccccc;
+        img {
+          height: 90px;
+          width: 90px;
+        }
+      }
+      h3{
+        background-color:#F3F3F3;
+        height:80px;
+      }
+      h2{
+        line-height: 72px;
+        font-size:16px;
+        text-align: center;
+        background-color: #ffffff;
+      }
+    }
+  }
+}
