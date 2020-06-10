@@ -1,11 +1,12 @@
 .right-contents
   .right-contents__user-icon
     .right-contents__user-icon__image
-      %img{:alt => "", :height => "60", :src => "https://cdn.pixabay.com/photo/2020/06/06/18/09/cat-5267657_1280.jpg", :width => "60"}/
-    .right-contents__user-icon__user-name ユーザー名
-    .right-contents__user-icon__user-eva
-      %span.bold 評価："#"
-      %span.bold 出品数："#"
+      %figure
+        %img{alt: "", src: "https://cdn.pixabay.com/photo/2020/06/06/18/09/cat-5267657_1280.jpg" }/
+      %h2.bold ユーザー名
+      .right-contents__user-icon__user-eva
+        %span.bold 評価："#"
+        %span.bold 出品数："#"
   .right-contents__to-do-list
     %h1 やる事リスト
     %ul

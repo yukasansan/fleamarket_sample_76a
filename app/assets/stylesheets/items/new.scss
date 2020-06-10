@@ -1,29 +1,13 @@
-.top-contents {
-  width: 100vw;
-  height: 128px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #efefef;
-  &__logo-box {
-    width: 185px;
-    height: 49px;
-    .logo-whites {
-      width: 185px;
-      height: 49px;
-    }
+.main__items {
+  background-color: #F5F5F5;
+  .header_logo {
+    text-align: center;
   }
-}
-
-.main {
-  width: 100vw;
-  background-color: #efefef;
-  position: relative;
   .sell-form {
     width: 700px;
     height: 100%;
     background-color: white;
-    position: absolute;
+    margin: 0 auto;
     left: 380px;
     &__image {
       width: 700px;

@@ -97,7 +97,7 @@
       %ul.hcBottom__right
         - if user_signed_in?
           %li.hcBottom__right--session
-            = link_to current_user.nickname, "#"
+            = link_to current_user.nickname, mypage_index_path
           %li.hcBottom__right--registration
             = link_to "ログアウト", destroy_user_session_path, method: :delete
         - else
