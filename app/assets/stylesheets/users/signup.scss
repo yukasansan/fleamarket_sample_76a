@@ -22,9 +22,42 @@
   width: 50%;
   height: 100%;
   .header_logo {
+    display: flex;
     img {
       width: 200px;
       margin: 30px 80px;
+    }
+    .progress-bar {
+      width: 100%;
+      padding: 40px 0 0 44px;
+      border: 0;
+      li {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        min-width: 40px;
+        margin: 0 5% 0 0;
+        font-size: 12px;
+        color: #888;
+      }
+      .active {
+        font-weight: 600;
+        color: #0099e8;
+      }
+      .progress-status {
+        width: 12px;
+        height: 12px;
+        margin: 8px auto 0;
+        background: #ccc;
+        border-radius: 50%;
+        &__active {
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          border-radius: 50%;
+          background: #0099e8;
+        }
+      }
     }
   }
   &__title {
