@@ -19,7 +19,6 @@
       %h2.form-title 会員情報入力
     .user-sign__up__form
       = form_for(@user, url: user_registration_path) do |f|
-        = render "devise/shared/error_messages", resource: @user
         .user-sign__up__form__content
           .field
             %label ニックネーム
