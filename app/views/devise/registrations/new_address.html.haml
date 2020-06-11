@@ -41,7 +41,7 @@
             %label 都道府県
             %span.form-require 必須
             %br/
-            = f.text_field :prefecture_id, placeholder:"東京都", required:"required", class:"input-form"
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name
           .field
             %label 市区町村
             %span.form-require 必須
