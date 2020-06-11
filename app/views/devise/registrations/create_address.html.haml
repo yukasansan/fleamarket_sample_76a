@@ -3,6 +3,18 @@
     .header_logo
       = link_to root_path  do
         = image_tag 'logo/logo.png'
+      %nav.progress-bar
+        %ol.clearfix
+          %li.active
+            会員情報
+            .progress-status__active
+          %li.active
+            送付先住所入力
+            .progress-status__active
+          %li.active
+            登録完了
+            .progress-status__active
+
     .user-sign__up__title
       %h2.form-title 登録が完了しました
     .user-sign__up__form
