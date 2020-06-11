@@ -19,7 +19,6 @@
       %h2 商品送付先住所登録
     .user-sign__up__form
       = form_for @address do |f|
-        = render "devise/shared/error_messages", resource: @address
         .user-sign__up__form__content
           .field
             %label 送付先氏名（全角）
@@ -37,7 +36,7 @@
             %label 郵便番号
             %span.form-require 必須
             %br/
-            = f.text_field :post_cord, placeholder:"半角数字で入力", required:"required", class:"input-form"
+            = f.text_field :post_cord, placeholder:"例）111-1111", required:"required", class:"input-form"
           .field
             %label 都道府県
             %span.form-require 必須
