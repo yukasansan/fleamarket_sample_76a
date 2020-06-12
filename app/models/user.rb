@@ -14,7 +14,6 @@ class User < ApplicationRecord
   has_many :sns_credentials
   has_one :address
 
-  
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
     # sns認証したことがあればアソシエーションで取得
@@ -31,5 +30,8 @@ class User < ApplicationRecord
     { user: user, sns: sns }
   end
 
+  has_one :card
+  has_many :cards
+  has_many :items
 
 end
