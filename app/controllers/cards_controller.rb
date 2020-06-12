@@ -10,21 +10,21 @@ class CardsController < ApplicationController
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @card_information = customer.cards.retrieve(@card.card_id)
 
-      # @card_brand = @card_information.brand
-      # case @card_brand
-      # when "Visa"
-      #   @card_src = "visa.gif"
-      # when "JCB"
-      #   @card_src = "jcb.gif"
-      # when "MasterCard"
-      #   @card_src = "master.gif"
-      # when "American Express"
-      #   @card_src = "amex.gif"
-      # when "Diners Club"
-      #   @card_src = "diner.gif"
-      # when "Discover"
-      #   @card_src = "discover.gif"
-      # end
+      @card_brand = @card_information.brand
+      case @card_brand
+      when "Visa"
+        @card_src = "card/visa.svg"
+      when "JCB"
+        @card_src = "card/jcb.svg"
+      when "MasterCard"
+        @card_src = "card/master-card.svg"
+      when "American Express"
+        @card_src = "card/american_express.svg"
+      when "Diners Club"
+        @card_src = "card/dinersclub.svg"
+      when "Discover"
+        @card_src = "card/discover.svg"
+      end
     end
   end
 
@@ -40,10 +40,7 @@ class CardsController < ApplicationController
       redirect_to action: "new"
     else
       customer = Payjp::Customer.create(
-        email: current_user.email,
-        card: params['payjp_token']
-        currency: 'jpy',
-        metadata: {user_id: current_user.id}
+        card: params['payjp_token'],
       )
       
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)

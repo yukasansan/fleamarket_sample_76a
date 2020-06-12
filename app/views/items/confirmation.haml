@@ -25,14 +25,25 @@
               -# ↓機能実装時にitemsテーブルのpriceを入れる
               .purchase-table__price ¥10,000
             -# ↓機能実装時にif文でcard_idの値の有無で場合分け
-            %section.pay-method
-              .pay-method__inner
-                %h3 支払い方法
-                = link_to new_card_path do
-                  %p.pay-method__inner-registration
-                    = fa_icon 'plus-circle'
-                    %span.pay-method__inner-registration--text
-                      登録してください
+            - if @card.present?
+              %section.pay-method
+                .pay-method__inner
+                  %h3 支払い方法
+                  = image_tag @card_src, size: "56x40", alt: @card_brand, class: "card-information__image"
+                  = link_to new_card_path do
+                    %p.pay-method__inner-registration
+                      = fa_icon 'plus-circle'
+                      %span.pay-method__inner-registration--text
+                        登録してください
+            - else
+              %section.pay-method
+                .pay-method__inner
+                  %h3 支払い方法
+                  = link_to new_card_path do
+                    %p.pay-method__inner-registration
+                      = fa_icon 'plus-circle'
+                      %span.pay-method__inner-registration--text
+                        登録してください
             %section.shipping-address
               .shipping-address__inner
                 %h3 配送先
