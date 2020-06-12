@@ -15,7 +15,7 @@
             = fa_icon("bars")
             カテゴリーから探す
           %ul.category__parent.category__list
-            - @parents.each do |parent| 
+            - @parents.each do |parent|
               %li
                 = link_to "#", class: "category__parent--name" do
                   = parent.name
@@ -30,10 +30,15 @@
                             = link_to "#", class: " category__child--name" do
                               = grandchild.name 
 
-      %ul.hcBottom__left--brand
+      %ul.hcBottom__left
         = link_to "#", id: "brandBtn" do
           = fa_icon("tag")
           ブランド
+        %ul.category__parent.category__list.brands
+          - @brands.each do |brand| 
+            %li
+              = link_to "#", class:"category__parent--name" do
+                = brand.name
       %ul.hcBottom__right
         - if user_signed_in?
           %li.hcBottom__right--session

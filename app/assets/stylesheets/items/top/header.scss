@@ -134,14 +134,12 @@
       padding: 10px 0;
       display: flex;
       line-height: 38px;
-      a {
-        @include top_a_left
-      }
-      a:hover {
-        color: #ffb340;
-      }
     }
-}
+    .brands {
+      height: 315px;
+      width: 200px;
+    }
+  }
 }
 
 .hcBottom__right {
