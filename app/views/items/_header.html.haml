@@ -10,90 +10,30 @@
           = form.submit class:"searchBox-btn"
     .header-contents__bottom
       %ul.hcBottom__left
-        %li.hcBottom__left--category
-          = link_to "カテゴリー", "#", id: "categoryBtn"
-          .category-tree
-            %ul.category-tree__box
-              %li.category-tree__box-item
-                = link_to "レディース", id:"1"
-                %ul.second-tree__box
-                  %li.second-tree__box-item
-                    %ul.third-tree__box
-                      %li.third-tree__box-item
-              %li.category-tree__box-item
-                = link_to "メンズ", id:"2"
-                %ul.second-tree__box
-                  %li.second-tree__box-item
-                    %ul.third-tree__box
-                      %li.third-tree__box-item
-              %li.category-tree__box-item
-                = link_to "ベビー・キッズ", id:"3"
-                %ul.second-tree__box
-                  %li.second-tree__box-item
-                    %ul.third-tree__box
-                      %li.third-tree__box-item
-              %li.category-tree__box-item
-                = link_to "インテリア・住まい・小物", id:"4"
-                %ul.second-tree__box
-                  %li.second-tree__box-item
-                    %ul.third-tree__box
-                      %li.third-tree__box-item
-              %li.category-tree__box-item
-                = link_to "本・音楽・ゲーム", id:"5"
-                %ul.second-tree__box
-                  %li.second-tree__box-item
-                    %ul.third-tree__box
-                      %li.third-tree__box-item
-              %li.category-tree__box-item
-                = link_to "おもちゃ・ホビー", id:"6"
-                %ul.second-tree__box
-                  %li.second-tree__box-item
-                    %ul.third-tree__box
-                      %li.third-tree__box-item
-              %li.category-tree__box-item
-                = link_to "コスメ・香水・美容", id:"7"
-                %ul.second-tree__box
-                  %li.second-tree__box-item
-                    %ul.third-tree__box
-                      %li.third-tree__box-item
-              %li.category-tree__box-item
-                = link_to "家電・スマホ・カメラ", id:"8"
-                %ul.second-tree__box
-                  %li.second-tree__box-item
-                    %ul.third-tree__box
-                      %li.third-tree__box-item
-              %li.category-tree__box-item
-                = link_to "スポーツ・レジャー", id:"9"
-                %ul.second-tree__box
-                  %li.second-tree__box-item
-                    %ul.third-tree__box
-                      %li.third-tree__box-item
-              %li.category-tree__box-item
-                = link_to "ハンドメイド", id:"10"
-                %ul.second-tree__box
-                  %li.second-tree__box-item
-                    %ul.third-tree__box
-                      %li.third-tree__box-item
-              %li.category-tree__box-item
-                = link_to "チケット", id:"11"
-                %ul.second-tree__box
-                  %li.second-tree__box-item
-                    %ul.third-tree__box
-                      %li.third-tree__box-item
-              %li.category-tree__box-item
-                = link_to "自動車", id:"12"
-                %ul.second-tree__box
-                  %li.second-tree__box-item
-                    %ul.third-tree__box
-                      %li.third-tree__box-item
-              %li.category-tree__box-item
-                = link_to "その他", id:"13"
-                %ul.second-tree__box
-                  %li.second-tree__box-item
-                    %ul.third-tree__box
-                      %li.third-tree__box-item
-        %li.hcBottom__left--brand
-          = link_to "ブランド", "#", id: "brandBtn"
+        %li
+          = link_to "#", class: "category__search search__btn" do
+            = fa_icon("bars")
+            カテゴリーから探す
+          %ul.category__parent.category__list
+            - @parents.each do |parent| 
+              %li
+                = link_to "#", class: "category__parent--name" do
+                  = parent.name
+                %ul.category__child.category__list
+                  - parent.children.each do |child|
+                    %li
+                      = link_to "#", class: "category__child--name" do
+                        = child.name
+                      %ul.category__grandchild.category__list
+                        - child.children.each do |grandchild|
+                          %li
+                            = link_to "#", class: " category__child--name" do
+                              = grandchild.name 
+
+      %ul.hcBottom__left--brand
+        = link_to "#", id: "brandBtn" do
+          = fa_icon("tag")
+          ブランド
       %ul.hcBottom__right
         - if user_signed_in?
           %li.hcBottom__right--session
@@ -102,6 +42,6 @@
             = link_to "ログアウト", destroy_user_session_path, method: :delete
         - else
           %li.hcBottom__right--session
-            = link_to "ログイン", new_user_session_path
+            = link_to "ログイン",  new_user_session_path
           %li.hcBottom__right--registration
             = link_to "新規会員登録", new_user_path
