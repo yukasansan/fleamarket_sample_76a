@@ -63,6 +63,11 @@ class CardsController < ApplicationController
     end
   end
 
+  def confirmation
+    Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+  end
+
   private
 
   def set_card

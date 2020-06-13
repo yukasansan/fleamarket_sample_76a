@@ -10,16 +10,15 @@ Rails.application.routes.draw do
   root to: 'items#index'
   
   resources :users, only: :new
-  resources :items do
-    collection do
-      get 'confirmation'
-    end
-  end
+  resources :items
   resources :mypage, only: [:index] do
     collection do
       get 'logout'
     end
   end
-  resources :cards
-
+  resources :cards do
+    collection do
+      get 'confirmation'
+    end
+  end
 end
