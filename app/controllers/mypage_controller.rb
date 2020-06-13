@@ -3,6 +3,5 @@ class MypageController < ApplicationController
   end
 
   def logout
-
   end
 end
