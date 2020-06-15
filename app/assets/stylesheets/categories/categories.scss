@@ -1,0 +1,88 @@
+.category__container{
+  width: 100%;
+  height: 100%;
+  background-color: whitesmoke;
+  padding-bottom: 1px;
+  &--top{
+    width: 700px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    h3{
+      font-size: 20px;
+      letter-spacing: 1px;
+      padding: 40px 0 15px;
+    }
+    .box__parent--link{
+      font-size: 15px;
+      display: inline-block;
+      padding: 10px 30px;
+      margin: 0 10px 10px 0;
+      background-color: white;
+      box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+      color: black;
+      border-radius: 3px;
+      transition: 0.2s;
+      &:hover {
+        background-color: $maincolor;
+        color: white;
+      }
+    }
+  }
+  &--box{
+    width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+    margin-bottom: 40px;
+    .top-btn {
+      padding: 0 0 10px 20px;
+      font-size: 20px;
+      a {
+        color: black;
+      }
+    }
+    &--title{
+      text-decoration: none;
+      display: block;
+      border-radius: 5px 5px 0 0;
+      padding: 16px 10px 8px;
+      background-color: $maincolor;
+      color: #fff;
+      text-align: left;
+      font-weight: bold;
+      font-size: 22px;
+    }
+    .category__box--child{
+      padding: 16px;
+      .category__link--btn{
+        color: orange;
+        font-weight: unset;
+        font-size: 14px;
+        letter-spacing: 1px;
+        &:hover {
+          border-bottom: solid orange 1px;
+        }
+      }
+      .category__box--child--all{
+        margin-bottom: 15px;
+      }
+      .child__box{
+        &--name{
+          color: #333;
+          font-weight: bold;
+          font-size: 16px;
+          text-decoration: none;
+        }
+        .grandchild__box{
+          padding: 5px 25px 10px;
+          .grandchild__link{
+            width: 290px;
+            height: 20px;
+            display: inline-flex;
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+}
