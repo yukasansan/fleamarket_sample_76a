@@ -16,10 +16,12 @@ Rails.application.routes.draw do
       get 'logout'
     end
   end
+  
   resources :cards do
     member do
       get 'confirmation'
       post 'pay'
+      get 'complete'
     end
   end
 end

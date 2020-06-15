@@ -5,6 +5,7 @@ class CardsController < ApplicationController
   before_action :set_card
   before_action :set_key, only: [:index, :create, :destroy, :confirmation]
   before_action :retrieve_card, only: [:index, :confirmation]
+  before_action :set_item, only: [:confirmation, :pay, :complete]
 
   def index
   end
@@ -33,18 +34,17 @@ class CardsController < ApplicationController
     customer = Payjp::Customer.retrieve(@card.customer_id)
     customer.delete
     if @card.destroy
-      redirect_to action: :new, notice: "削除しました"
+      redirect_to action: :new
     else
-      redirect_to action: :index, alert: "削除できませんでした"
+      redirect_to action: :index
     end
   end
 
   def confirmation
-    @item = Item.find(params[:id])
+    redirect_to user_session_path unless user_signed_in?
   end
 
   def pay
-    @item = Item.find(params[:id])
     Payjp::Charge.create(
       amount: @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
       customer: @card.customer_id, #顧客ID
@@ -52,6 +52,11 @@ class CardsController < ApplicationController
       )
       # 購入者のidをDBに反映
       @item.update(buyer_id: current_user.id)
+
+      redirect_to action: :complete
+  end
+
+  def complete
   end
 
   private
@@ -85,6 +90,10 @@ class CardsController < ApplicationController
         @card_src = "card/discover.svg"
       end
     end
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end
