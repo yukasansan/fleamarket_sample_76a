@@ -1,0 +1,19 @@
+.card-information {
+  text-align: center;
+  &__title {
+    font-size:20px;
+    margin: 23px 0;
+  }
+  &__image {
+    margin-bottom: 20px;
+  }
+  &__number, &__limit {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  &__delete-btn {
+    @include btn(red);
+    width: 350px;
+    margin: 0 auto;
+  }
+}

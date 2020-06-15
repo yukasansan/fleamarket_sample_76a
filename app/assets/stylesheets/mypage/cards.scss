@@ -73,9 +73,8 @@
         .month{
           margin-top: 12px;
         }
-        .select{
+        .input-expire{
         position: relative;
-        z-index: 2;
         height: 48px;
         padding: 0 46px;
         border-radius: 4px;
@@ -119,7 +118,7 @@
             width: 240px;
           }
         }
-        button{
+        .content-bottom--add-btn{
           margin-top: 32px;
           text-align: center;
           background-color:#3BC9CE;

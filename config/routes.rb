@@ -23,6 +23,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cards, only: [:new]
+  resources :cards, only: [:index, :new, :create, :destroy] do
+    member do
+      get 'confirmation'
+      post 'pay'
+      get 'complete'
+    end
+  end
+
   resources :categories, only: [:index, :show]
+  
 end

@@ -27,7 +27,6 @@ class User < ApplicationRecord
   validates_format_of :birthyear, with: /\A\d{4}\z/, message: "4桁の半角数字を入力してください"
   validates_format_of :birthmonth, :birthday, with: /\A[0-9]+\z/, message: "半角数字を入力してください"
 
-  
   def self.from_omniauth(auth)
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
     # sns認証したことがあればアソシエーションで取得
@@ -44,5 +43,8 @@ class User < ApplicationRecord
     { user: user, sns: sns }
   end
 
+  has_one :card
+  has_many :cards
+  has_many :items
 
 end
