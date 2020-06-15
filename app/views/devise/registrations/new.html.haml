@@ -3,11 +3,22 @@
     .header_logo
       = link_to root_path  do
         = image_tag 'logo/logo.png'
+      %nav.progress-bar
+        %ol.clearfix
+          %li.active
+            会員情報
+            .progress-status__active
+          %li
+            送付先住所入力
+            .progress-status
+          %li
+            登録完了
+            .progress-status
+
     .user-sign__up__title
       %h2.form-title 会員情報入力
     .user-sign__up__form
       = form_for(@user, url: user_registration_path) do |f|
-        = render "devise/shared/error_messages", resource: @user
         .user-sign__up__form__content
           .field
             %label ニックネーム

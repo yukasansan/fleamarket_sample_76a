@@ -6,6 +6,29 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        password: パスワード
+        last_name: 名字
+        first_name: 名前
+        last_name_kana: 名字（かな）
+        first_name_kana: 名前（かな）
+        telephone: 電話番号
+        birthyear: 生年月日（年）
+        birthmonth: 生年月日（月）
+        birthday: 生年月日（日）
+      address:
+        last_name: 名字
+        first_name: 名前
+        last_name_kana: 名字（かな）
+        first_name_kana: 名前（かな）
+        post_cord: 郵便番号
+        prefecture_id: 都道府県
+        city: 市区町村
+        address: 所在地（番地）
   date:
     abbr_day_names:
     - 日
@@ -110,7 +133,7 @@ ja:
     messages:
       accepted: を受諾してください
       blank: を入力してください
-      confirmation: と%{attribute}の入力が一致しません
+      confirmation: パスワードと確認用%{attribute}の入力が一致しません
       empty: を入力してください
       equal_to: は%{count}にしてください
       even: は偶数にしてください

@@ -22,20 +22,55 @@
   width: 50%;
   height: 100%;
   .header_logo {
+    display: flex;
     img {
       width: 200px;
       margin: 30px 80px;
     }
+    .progress-bar {
+      width: 100%;
+      padding: 40px 0 0 44px;
+      border: 0;
+      li {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        min-width: 40px;
+        margin: 0 5% 0 0;
+        font-size: 12px;
+        color: #888;
+      }
+      .active {
+        font-weight: 600;
+        color: #0099e8;
+      }
+      .progress-status {
+        width: 12px;
+        height: 12px;
+        margin: 8px auto 0;
+        background: #ccc;
+        border-radius: 50%;
+        &__active {
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          border-radius: 50%;
+          background: #0099e8;
+        }
+      }
+    }
   }
   &__title {
     font-size: 22px;
-    font-weight: 600;
     text-align: center;
     height: 100px;
     line-height: 100px;
     width: 100%;
     background-color:white;
     border-bottom: 1px solid lightgray;
+    h2 {
+      font-weight: 600;
+    }
   }
   &__form {
     background-color: white;
@@ -61,15 +96,7 @@
         display: inline-block;
       }
       .input-form {
-        height: 48px;
-        padding: 10px 16px 8px;
-        border-radius: 4px;
-        border: 1px solid #ccc;
-        background: #fff;
-        line-height: 1.5;
-        font-size: 16px;
-        width: 100%;
-        margin-top: 8px;
+        @include form;
         &__name {
           width: calc(50% - 15px);
           height: 48px;
@@ -82,6 +109,9 @@
           padding: 10px 16px 8px;
           margin-top: 8px;
         }
+      }
+      #address_prefecture_id {
+        @include form;
       }
     }
   }

@@ -2,6 +2,16 @@ class ApplicationController < ActionController::Base
   before_action :basic_auth
   before_action :basic_auth, if: :production?
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_parents
+  before_action :set_brands
+  
+  def set_parents
+    @parents = Category.where(ancestry: nil)
+  end
+  
+  def set_brands
+    @brands = Brand.all
+  end
 
   protected
   
@@ -21,4 +31,5 @@ class ApplicationController < ActionController::Base
   def production?
     Rails.env.production?
   end
+  
 end
