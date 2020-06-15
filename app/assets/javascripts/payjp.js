@@ -4,7 +4,7 @@ $(function() {
     e.preventDefault();
     Payjp.setPublicKey("pk_test_2bb73c99988d60ce0dac5864");
 
-    var card = {
+    const card = {
       number: $("#card_number").val(),
       cvc: $("#cvc").val(),
       exp_month: $("#exp_month").val(),
