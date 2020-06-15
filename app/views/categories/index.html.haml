@@ -1,0 +1,26 @@
+= render partial: "items/header"
+- breadcrumb :categories
+= render "layouts/breadcrumbs"
+.main
+  .main__categories
+    %h1.main__categories__title カテゴリー一覧
+    %ul.categories
+      .categories__content
+        - @parents.each do |parent|
+          %li.parents= link_to "#{parent.name}", category_path(parent), class: "category-parent__font"
+
+          %ul.categories__children
+            - parent.children.each do |child|
+              %li.childern= link_to "#{child.name}", category_path(child), class: "category-children__font"
+
+              %ul.categories__grandchildren
+                - child.children.each do |grandchild|
+                  %li= link_to "#{grandchild.name}", category_path(grandchild), class: "category-grandchildren__font"
+    
+      .top-btn
+        = link_to "#" do
+          = fa_icon("arrow-up")
+          ページトップへ
+
+= render partial: "items/aside"
+= render partial: "items/footer"

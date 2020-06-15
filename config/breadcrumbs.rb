@@ -11,6 +11,9 @@ crumb :profile do
   parent :mypage
 end
 
+crumb :categories do
+  link "カテゴリー一覧", "categories_path"
+end
 
 # crumb :projects do
 #   link "Projects", projects_path

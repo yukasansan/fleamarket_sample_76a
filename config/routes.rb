@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get 'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
+
   root to: 'items#index'
   
   resources :users, only: :new
@@ -15,10 +16,13 @@ Rails.application.routes.draw do
       get 'confirmation'
     end
   end
+
   resources :mypage, only: [:index] do
     collection do
       get 'logout'
     end
   end
+
   resources :cards, only: [:new]
+  resources :categories, only: [:index, :show]
 end
