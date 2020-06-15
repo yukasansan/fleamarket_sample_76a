@@ -105,6 +105,26 @@
         }
       }
     }
+    &__purchase-btn {
+      @include btn(red);
+      font-size: 18px;
+      border: 1px solid;
+      width: 60%;
+      font-size: 18px;
+      border-radius: 100px;
+      text-align: center;
+      margin: 32px auto 0;
+    }
+    &__sold-out {
+      @include btn(gray);
+      font-size: 18px;
+      border: 1px solid;
+      width: 60%;
+      font-size: 18px;
+      border-radius: 100px;
+      text-align: center;
+      margin: 32px auto 0;
+    }
     &__comment {
       padding: 24px;
       background-color: white;
@@ -129,7 +149,6 @@
         border: 1px solid #3CCACE;
         color: #fff;
         width: 60%;
-        font-size: 18px;
         border-radius: 100px;
       }
     }

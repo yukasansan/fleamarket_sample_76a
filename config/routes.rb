@@ -17,8 +17,9 @@ Rails.application.routes.draw do
     end
   end
   resources :cards do
-    collection do
+    member do
       get 'confirmation'
+      post 'pay'
     end
   end
 end

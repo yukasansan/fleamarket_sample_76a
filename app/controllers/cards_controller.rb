@@ -1,31 +1,12 @@
 class CardsController < ApplicationController
 
-  before_action :set_card
-
   require "payjp"
 
-  def index
-    Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
-    if @card.present?
-      customer = Payjp::Customer.retrieve(@card.customer_id)
-      @card_information = customer.cards.retrieve(@card.card_id)
+  before_action :set_card
+  before_action :set_key, only: [:index, :create, :destroy, :confirmation]
+  before_action :retrieve_card, only: [:index, :confirmation]
 
-      @card_brand = @card_information.brand
-      case @card_brand
-      when "Visa"
-        @card_src = "card/visa.svg"
-      when "JCB"
-        @card_src = "card/jcb.svg"
-      when "MasterCard"
-        @card_src = "card/master-card.svg"
-      when "American Express"
-        @card_src = "card/american_express.svg"
-      when "Diners Club"
-        @card_src = "card/dinersclub.svg"
-      when "Discover"
-        @card_src = "card/discover.svg"
-      end
-    end
+  def index
   end
 
   def new
@@ -34,15 +15,10 @@ class CardsController < ApplicationController
   end
 
   def create
-    # Payjp.api_key = 'sk_test_06ee56e5ca37033cbed61eb7'
-    Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
     if params['payjp_token'].blank?
       redirect_to action: "new"
     else
-      customer = Payjp::Customer.create(
-        card: params['payjp_token'],
-      )
-      
+      customer = Payjp::Customer.create(card: params['payjp_token'])
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
         redirect_to mypage_index_path
@@ -64,14 +40,51 @@ class CardsController < ApplicationController
   end
 
   def confirmation
-    Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
-    customer = Payjp::Customer.retrieve(@card.customer_id)
+    @item = Item.find(params[:id])
+  end
+
+  def pay
+    @item = Item.find(params[:id])
+    Payjp::Charge.create(
+      amount: @item.price, #支払金額を入力（itemテーブル等に紐づけても良い）
+      customer: @card.customer_id, #顧客ID
+      currency: 'jpy', #日本円
+      )
+      # 購入者のidをDBに反映
+      @item.update(buyer_id: current_user.id)
   end
 
   private
 
   def set_card
     @card = Card.where(user: current_user).first if Card.where(user: current_user).present?
+  end
+
+  def set_key  #秘密鍵の設定
+    Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
+  end
+
+  def retrieve_card  #登録されたカードから情報を引き出すメソッド
+    if @card.present?
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @card_information = customer.cards.retrieve(@card.card_id)
+
+      @card_brand = @card_information.brand
+      case @card_brand
+      when "Visa"
+        @card_src = "card/visa.svg"
+      when "JCB"
+        @card_src = "card/jcb.svg"
+      when "MasterCard"
+        @card_src = "card/master-card.svg"
+      when "American Express"
+        @card_src = "card/american_express.svg"
+      when "Diners Club"
+        @card_src = "card/dinersclub.svg"
+      when "Discover"
+        @card_src = "card/discover.svg"
+      end
+    end
   end
 
 end

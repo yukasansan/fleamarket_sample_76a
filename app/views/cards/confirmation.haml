@@ -10,52 +10,56 @@
           .confirmation-contents__inner-item--image
             = image_tag 'pict/a001.png'
           .confirmation-contents__inner-item--detail
-            -# ↓機能実装時にitemsテーブルのnameを入れる
-            %p.confirmation-contents__inner-item--detail-name pruduct1
+            %p.confirmation-contents__inner-item--detail-name
+              = @item.name
             %p.confirmation-contents__inner-item--detail-price
-              -# ↓機能実装時にitemsテーブルのpriceを入れる
-              %span ¥10,000
-              -# ↑場合分けあるいは計算するメソッドが必要?
+              -# ↓場合分けあるいは計算するメソッドが必要?
+              %span
+                = "¥#{@item.price.to_s(:delimited)}"
               %span (税込)送料込み
       %section.confirmation-contents__inner
         .confirmation-contents__inner-buy
-          = form_with(method: :POST) do |form|
-            .purchase-table
-              .purchase-table__label 支払い金額
-              -# ↓機能実装時にitemsテーブルのpriceを入れる
-              .purchase-table__price ¥10,000
-            -# ↓機能実装時にif文でcard_idの値の有無で場合分け
-            - if @card.present?
-              %section.pay-method
-                .pay-method__inner
-                  %h3 支払い方法
-                  = image_tag @card_src, size: "56x40", alt: @card_brand, class: "card-information__image"
-                  = link_to new_card_path do
-                    %p.pay-method__inner-registration
-                      = fa_icon 'plus-circle'
-                      %span.pay-method__inner-registration--text
-                        登録してください
-            - else
-              %section.pay-method
-                .pay-method__inner
-                  %h3 支払い方法
-                  = link_to new_card_path do
-                    %p.pay-method__inner-registration
-                      = fa_icon 'plus-circle'
-                      %span.pay-method__inner-registration--text
-                        登録してください
-            %section.shipping-address
-              .shipping-address__inner
-                %h3 配送先
-                -# ↓機能実装時にroot_pathを該当編集ページのパスに変更
-                = link_to '変更する', root_path, class:"change-address"
-              .shipping-address__inner-info
+          .purchase-table
+            .purchase-table__label 支払い金額
+            .purchase-table__price
+              = "¥#{@item.price.to_s(:delimited)}"
+          - if @card.present?
+            %section.pay-method
+              .pay-method__inner
+                %h3 支払い方法
+                = link_to '変更する', cards_path, class:"change-cards"
+                %p クレジットカード
+                = image_tag @card_src, size: "35x25", alt: @card_brand, class: "card-information__image"
                 %p
-                  = "〒 #{current_user.address[:post_cord]}"
+                  = "**** **** **** " + @card_information.last4
                   %br
-                  = current_user.address[:prefecture_id] + current_user.address[:city] + current_user.address[:address] + current_user.address[:building]
-                  %br
-                  = current_user.last_name + " " + current_user.first_name
-            .purchase-btn
-              = form.submit id:"purchase-btn", value:"購入する"
+                  - exp_month = @card_information.exp_month.to_s
+                  - exp_year = @card_information.exp_year.to_s.slice(2,3)
+                  = exp_month + " / " + exp_year
+          - else
+            %section.pay-method
+              .pay-method__inner
+                %h3 支払い方法
+                = link_to new_card_path do
+                  %p.pay-method__inner-registration
+                    = fa_icon 'plus-circle'
+                    %span.pay-method__inner-registration--text
+                      登録してください
+          %section.shipping-address
+            .shipping-address__inner
+              %h3 配送先
+              -# ↓機能実装時にroot_pathを該当編集ページのパスに変更
+              = link_to '変更する', root_path, class:"change-address"
+            .shipping-address__inner-info
+              %p
+                = "〒 #{current_user.address[:post_cord].to_s.insert(3, "-")}"
+                %br
+                = current_user.address[:prefecture_id] + current_user.address[:city] + current_user.address[:address] + current_user.address[:building]
+                %br
+                = current_user.last_name + " " + current_user.first_name
+          - if @card.present? && @item.buyer_id.blank?
+            = form_tag(action: :pay, method: :post) do
+              %button.purchase-btn-true{type:"submit"} 購入する
+          - else
+            %button.purchase-btn-false{type:"submit", disabled:""} お支払い方法を登録して下さい
   = render partial: 'devise/footer'
