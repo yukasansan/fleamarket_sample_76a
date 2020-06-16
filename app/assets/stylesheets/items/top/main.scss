@@ -226,6 +226,7 @@ img {
         &__item {
           width: 220px;
           display: inline-block;
+          position: relative;
           &:hover {
           opacity: 0.5;
           }
@@ -251,6 +252,13 @@ img {
               height: 150px;
               object-fit: cover;
             }
+          }
+          .sold-out__mask {
+            position: absolute;
+            z-index: 10;
+            top: 25%;
+            left: 7%;
+            width: 200px;
           }
           &-content {
             background-color: white;

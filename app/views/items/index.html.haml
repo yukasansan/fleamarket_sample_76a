@@ -95,11 +95,9 @@
         - @products.each do |item|
           .pickup-products__item
             = link_to '/items/1' do
+
               %figure.pickup-products__item-img
-                -# = image_tag item.item_images[0].image.to_s
-                = image_tag item.item_images.first&.image.url, class: "pic__image"
-                -# = item.item_images[0].image.to_s, class: "item_image"
-                -# = @image.first(1).each do |image|
+                = image_tag item.item_images.first&.image.url
               .pickup-products__item-content
                 %h3.pickup-products__item-content--name
                   = item.name
@@ -112,6 +110,9 @@
                       = fa_icon("star")
                       0
                   %p (税込)
+              - if item.buyer_id == nil
+                .sold-out__mask
+                  = image_tag 'pict/sold_out.png'
   %section.pickup
     %h2.pickup__title
       ピックアップブランド
