@@ -94,7 +94,8 @@
       .pickup-products
         - @products.each do |item|
           .pickup-products__item
-            = link_to '/items/1' do
+            -# = link_to '/items/1' do
+            = link_to "/items/#{item.id}" do
 
               %figure.pickup-products__item-img
                 = image_tag item.item_images.first&.image.url
@@ -104,13 +105,13 @@
                 .pickup-products__item-content--detail
                   %ul
                     %li 
-                      = item.price
+                      = item.price.to_s(:delimited)
                       円
                     %li
                       = fa_icon("star")
                       0
                   %p (税込)
-              - if item.buyer_id != nil
+              - if item.buyer_id.present?
                 .sold-out__mask
                   = image_tag 'pict/sold_out.png'
   %section.pickup

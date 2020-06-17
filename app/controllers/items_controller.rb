@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   end
   
   def show
+    @image = Item.includes(:item_images)
   end
 
   private
