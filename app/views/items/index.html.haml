@@ -92,45 +92,27 @@
         = link_to "#" do
           %h3.pickup-contents__head-title 新規投稿商品
       .pickup-products
-        .pickup-products__item
-          = link_to '/items/1' do
-            %figure.pickup-products__item-img
-              = image_tag 'pict/a007.png'
-            .pickup-products__item-content
-              %h3.pickup-products__item-content--name product3
-              .pickup-products__item-content--detail
-                %ul
-                  %li 30000円
-                  %li
-                    = fa_icon("star")
-                    0
-                %p (税込)
-        .pickup-products__item
-          = link_to 'http://furima.tokyo/products/2' do
-            %figure.pickup-products__item-img
-              = image_tag 'pict/a004.png'
-            .pickup-products__item-content
-              %h3.pickup-products__item-content--name product2
-              .pickup-products__item-content--detail
-                %ul
-                  %li 20000円
-                  %li
-                    = fa_icon("star")
-                    0
-                %p (税込)
-        .pickup-products__item
-          = link_to 'http://furima.tokyo/products/1' do
-            %figure.pickup-products__item-img
-              = image_tag 'pict/a001.png'
-            .pickup-products__item-content
-              %h3.pickup-products__item-content--name product1
-              .pickup-products__item-content--detail
-                %ul
-                  %li 10000円
-                  %li
-                    = fa_icon("star")
-                    0
-                %p (税込)
+        - @products.each do |item|
+          .pickup-products__item
+            = link_to '/items/1' do
+
+              %figure.pickup-products__item-img
+                = image_tag item.item_images.first&.image.url
+              .pickup-products__item-content
+                %h3.pickup-products__item-content--name
+                  = item.name
+                .pickup-products__item-content--detail
+                  %ul
+                    %li 
+                      = item.price
+                      円
+                    %li
+                      = fa_icon("star")
+                      0
+                  %p (税込)
+              - if item.buyer_id == nil
+                .sold-out__mask
+                  = image_tag 'pict/sold_out.png'
   %section.pickup
     %h2.pickup__title
       ピックアップブランド
