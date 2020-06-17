@@ -43,6 +43,39 @@
           font-size: 14px;
           margin-top: 16px;
         }
+        #image-box-1 {
+          width: 620px;
+          height: 148px;
+          background-color: mediumaquamarine;
+          margin-top: 16px;
+          .item-num-0#image-box__container {
+            width: 100%;
+            height: 100%;
+            background-color: #efefef;
+            text-decoration: none;
+            text-align: center;
+            font-size: 1.5rem;
+            position: relative;
+            border-style: dashed;
+            border-color: #ccc6c6;
+            border-width: 1px;
+            .input-area {
+              width: 100%;
+              height: 100%;
+              .fas.fa-camera {
+                width: 100%;
+                height: 100%;
+                display: block;
+                cursor: pointer;
+                position: relative;
+                &::before {
+                  position: absolute;
+                  top: 50%;
+                }
+              }
+            }
+          }
+        }
         .photo-box {
           height: 148px;
           width: 100%;

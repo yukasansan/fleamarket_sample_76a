@@ -14,15 +14,15 @@
           %label.image-product 出品画像
           %span.image-attention 必須
           %p.image-content 最大10枚までアップロードできます
-          %label
-            .photo-box
-              = f.file_field :image, class: 'hidden' do
-                = image_tag('icon/icon_camera.png',class: "icon_camera")
-                %p.explanation-content
-                  ドラッグアンドドロップ
-                  %br またはクリックしてファイルをアップロード
-              -# = f.fields_for :item_images do |image|
-              -#   = image.file_field :image, multiple: true, name: "item_images[image][]", id: "upload-image", class: "upload-image"
+          #image-box-1
+            .item-num-0#image-box__container
+              = f.fields_for :images do |i|
+                .input-area
+                  = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:none", id:"img-file"
+                  %label{for: "img-file"}
+                    %i.fas.fa-camera
+
+
 
       .sell-form__product
         .sell-form__product__box
