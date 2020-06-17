@@ -10,13 +10,13 @@
         .show__main__content__top__image
           - if @item.buyer_id.blank?
             %ul.maincontent__image
-              %li= image_tag 'pict/item1.png'
+              %li= image_tag @item.item_images.first&.image.url
             %ul.subcontent__image
-              %li= image_tag 'pict/item1.png'
-              %li= image_tag 'pict/item2.png'
-              %li= image_tag 'pict/item3.png'
+              %li= image_tag @item.item_images.first&.image.url
+              %li= image_tag @item.item_images.first&.image.url
+              %li= image_tag @item.item_images.first&.image.url
           - else
-            = image_tag 'pict/sold_out.jpeg', class: "maincontent__image"
+            = image_tag 'pict/sold_out.png', class: "maincontent__image"
         .show__main__content__price
           %span
             = "¥#{@item.price.to_s(:delimited)}"
@@ -30,28 +30,29 @@
             %tbody
               %tr
                 %th 出品者
-                %td ふりま太郎
+                %td= @item.seller.nickname
               %tr
                 %th カテゴリー
                 %td
-                  =link_to 'ベビー・キッズ', '#'
+                  =link_to @item.category.name, '#'
                   %br
                   =link_to 'ベビー服（男女兼用）〜95cm', '#'
                   %br
                   =link_to 'アウター', '#'
               %tr
                 %th ブランド
-                %td
+                %td=@item.brand
               %tr
                 %th 商品のサイズ
-                %td
+                %td= @item.size
               %tr
                 %th 商品の状態
                 %td
                   = @item.condition
               %tr
                 %th 配送料の負担
-                %td 送料込み（出品者負担）
+                %td
+                  = @item.shipping_price
               %tr
                 %th 発送元の地域
                 %td=@item.prefecture_id
@@ -68,12 +69,16 @@
             %li.optional__btn
               = fa_icon("flag")
               = link_to '不適切な商品の通報', '#'
-        - if @item.buyer_id.blank? && user_signed_in?
-          = link_to "購入画面に進む", confirmation_card_path(@item.id), class:"show__main__content__purchase-btn"
-        - elsif @item.buyer_id.present? && user_signed_in?
+        - if @item.buyer_id.present?
           %button.show__main__content__sold-out{disabled:""} SOLD OUT
-        - else
+        - elsif user_signed_in? == false
           = link_to "ログインして下さい", user_session_path, class:"show__main__content__purchase-btn"
+        - elsif current_user.id == @item.seller_id
+          .show__main__content__btn
+            = link_to "編集する", "#", class:"show__main__content__btn--edit"
+            = link_to "削除する", "#", class:"show__main__content__btn--delete"
+        - else
+          = link_to "購入画面に進む", confirmation_card_path(@item.id), class:"show__main__content__purchase-btn"
       .show__main__content__comment
         %textarea#comment_body{name: "comment[body]", required: "required"}
         %p.comment__message 
