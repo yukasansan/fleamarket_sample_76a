@@ -110,7 +110,7 @@
                       = fa_icon("star")
                       0
                   %p (税込)
-              - if item.buyer_id == nil
+              - if item.buyer_id != nil
                 .sold-out__mask
                   = image_tag 'pict/sold_out.png'
   %section.pickup
