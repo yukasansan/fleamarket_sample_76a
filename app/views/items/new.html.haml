@@ -42,7 +42,7 @@
           .sell-form__detail__box-top
             %label.detail-category カテゴリー
             %span.detail-attention 必須
-            -# = f.collection_select :category_id, @category, class: "item-input__select", prompt: "選択してください"
+            -# = f.collection_select :category_id, Category.all, class: "item-input__select", prompt: "選択してください"
             = f.text_field :category_id
           .sell-form__detail__box-middle
             %label.detail-brand ブランド
@@ -72,6 +72,9 @@
             %span.delivery-attention 必須
             = f.select :shipping_days, ["1~2日で発送", "2~3日で発送", "4~7日で発送"], include_blank: '選択してください', class: "item-input__select"
 
+          .sell-form__delivery__box-method
+            %label.delivery-method 配送方法
+            %span.delivery-attention 必須
             = f.select :shipping_method, ["未定", "らくらくメルカリ便", "ゆうメール", "レターパック", "普通郵便(定形、定形外)", "クロネコヤマト", "ゆうパック", "クリックポスト", "ゆうパケット"], include_blank: '選択してください', class: "item-input__select"
 
       .sell-form__price
