@@ -15,8 +15,8 @@
               %li= image_tag 'pict/item1.png'
               %li= image_tag 'pict/item2.png'
               %li= image_tag 'pict/item3.png'
-          - else
-            = image_tag 'pict/sold_out.jpeg', class: "maincontent__image"
+          -# - else
+          -#   = image_tag 'pict/sold_out.jpeg', class: "maincontent__image"
         .show__main__content__price
           %span
             = "¥#{@item.price.to_s(:delimited)}"
