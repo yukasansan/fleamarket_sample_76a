@@ -106,7 +106,7 @@
       }
     }
     &__purchase-btn {
-      @include btn(red);
+      @include btn(blue);
       font-size: 18px;
       border: 1px solid;
       width: 60%;
@@ -124,6 +124,30 @@
       border-radius: 100px;
       text-align: center;
       margin: 32px auto 0;
+    }
+    &__btn {
+      display: flex;
+      justify-content: space-between;
+      &--edit {
+        @include btn(green);
+        font-size: 18px;
+        border: 1px solid;
+        width: 40%;
+        font-size: 18px;
+        border-radius: 100px;
+        text-align: center;
+        margin: 32px auto 0;
+      }
+      &--delete {
+        @include btn(red);
+        font-size: 18px;
+        border: 1px solid;
+        width: 40%;
+        font-size: 18px;
+        border-radius: 100px;
+        text-align: center;
+        margin: 32px auto 0;
+      }
     }
     &__comment {
       padding: 24px;
