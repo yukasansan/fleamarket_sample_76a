@@ -3,8 +3,7 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @products = Item.all
-    @items = Item.includes(:images).order(updated_at: "DESC")
+    @products = Item.includes(:item_images).order(updated_at: "DESC")
   end
   
   def new
