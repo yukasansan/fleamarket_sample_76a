@@ -13,6 +13,11 @@ class ItemsController < ApplicationController
     @image = Item.includes(:item_images)
   end
 
+  def destroy
+      @item.destroy
+      redirect_to root_path
+  end
+
   private
   
   def set_item
