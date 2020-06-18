@@ -1,0 +1,6 @@
+%h1 ブランド入力ページだよ
+= form_for @genre do |f|
+  = f.text_field :name, required:"required"
+  = f.submit "変更"
+
+= link_to "戻る", new_genre_path

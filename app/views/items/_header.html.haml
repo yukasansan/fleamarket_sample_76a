@@ -36,7 +36,7 @@
         = link_to "#", id: "brandBtn" do
           = fa_icon("tag")
           ブランド
-        %ul.category__parent.category__list.brands
+        %ul.category__parent.brands
           - @brands.each do |brand| 
             %li
               = link_to "#", class:"category__parent--name" do
