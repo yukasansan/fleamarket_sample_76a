@@ -136,7 +136,9 @@
       line-height: 38px;
     }
     .brands {
-      height: 317px;
+      position: absolute;
+      background-color: white;
+      border-right: 1px solid whitesmoke;
       width: 200px;
     }
   }
