@@ -1,20 +1,76 @@
 $(function(){
-  console.log("hello")
-  //querySelectorでfile_fieldを取得
-  let file_field = document.querySelector('input[type=file]')
-  //fileが選択された時に発火するイベント
-  $('#img-file').change(function(){
-    //選択したfileのオブジェクトをpropで取得
-    let file = $('input[type="file"]').prop('files')[0];
-    //FileReaderのreadAsDataURLで指定したFileオブジェクトを読み込む
-    let fileReader = new FileReader();
-    //読み込みが完了すると、srcにfileのURLを格納
-    fileReader.onloadend = function() {
-      let src = fileReader.result
-      let html= `<img src="${src}" width="114" height="80">`
-      //image_box__container要素の前にhtmlを差し込む
-      $('#image-box__container').before(html);
+  let fileIndex = 1
+  const buildFileField = (num)=> {
+    const html = `<div class="js-file_group" data-index="${num}">
+                    <input class="js-file" type="file" 
+                    name="item[item_images_attributes][${num}][image]"
+                    id="item_item_images_attributes_${num}_image">
+                    <span class="js-remove">削除</span>
+                  </div>`
+    fileIndex += 1
+    return html;
+  }
+
+  const buildImg = (index, url)=> {
+    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px" style="margin-right: 18px;" >`
+    return html;
+  }
+
+
+
+  $('#image-box').on('change', '.js-file', function(e) {
+
+    const targetIndex = $(this).parent().data('index');
+    const file = e.target.files[0];
+
+
+    if(!file){
+      $(`.js-file_group[data-index=${targetIndex}]`).find(".js-remove").trigger("click");
+      return false;
     }
-    fileReader.readAsDataURL(file);
+
+      var blobUrl = window.URL.createObjectURL(file);
+
+    if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
+      img.setAttribute('src', blobUrl);
+    } else {
+      $('#previews').append(buildImg(targetIndex, blobUrl));
+
+    if($(".js-file_group").length >= 10 ){
+      return false;
+    } else {
+      $('#image-box').append(buildFileField(fileIndex));
+
+    }
+    }
   });
+
+  $('#image-box').on('click', '.js-remove', function() {
+    let limitFileField = $(".js-file_group:last").data("index");
+    const targetIndex = $(this).parent().data('index')
+    const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+    if (hiddenCheck) hiddenCheck.prop('checked', true);
+    $(this).parent().remove();
+    $(`img[data-index="${targetIndex}"]`).remove();
+    if ((targetIndex == limitFileField ) || ($(".js-file_group").length >= 9)) ($('#image-box').append(buildFileField(fileIndex)));
+  });
+
+  
+  
+  $('#item_price').on("input", function() {
+    let input = $("#item_price").val();
+    let priceFix = Math.round(input * 0.1)
+    let profit = input - priceFix
+
+    $('.selling-fee__zero').html(priceFix)
+    // 手数料に￥をつける
+    $('.selling-fee__zero').prepend('¥')
+    $('.selling-profit__zero').html(profit)
+    // 販売利益に￥をつける
+    $('.selling-profit__zero').prepend('¥')
+  });
+
 });
+
+
+

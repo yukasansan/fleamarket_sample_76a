@@ -1,8 +1,8 @@
-= form_for @item do |f|
+= form_for @item, html: {class: "sell-form dropzone", id: "item-dropzone"}do |f|
 
   .main__items
-    .user-sign__up
-      .header_logo
+    .user-sign__in
+      .header_sign__in__logo
         = link_to root_path  do
           = image_tag 'logo/logo.png'
 
@@ -14,13 +14,24 @@
           %label.image-product 出品画像
           %span.image-attention 必須
           %p.image-content 最大10枚までアップロードできます
-          #image-box-1
-            .item-num-0#image-box__container
-              = f.fields_for :images do |i|
-                .input-area
-                  = i.file_field :image, type: 'file', name: "item[images_attributes][][image_url]", value:"", style: "display:none", id:"img-file"
-                  %label{for: "img-file"}
-                    %i.fas.fa-camera
+          #image-box
+            #previews
+              - if @item.persisted?
+                - @item.item_images.each_with_index do |item_image, i|
+                  = image_tag "#{image.image}", data: { index: i}, width: "100", height: '100'
+            = f.fields_for :item_images do |image|
+              .js-file_group{"data-index" => "#{image.index}"}
+                = image.file_field :image, class: 'js-file' ,id: 'camera', required: "required", style: "display:none"
+                %label{for: "camera"}
+                  = fa_icon("camera")
+                
+                %span.js-remove 削除
+              - if @item.persisted?
+                = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+            - if @item.persisted?
+              .js-file_group{"data-index" => "#{@item.item_images.count}"}
+                = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: 'js-file'
+              .js-remove 削除
 
 
 
@@ -42,8 +53,7 @@
           .sell-form__detail__box-top
             %label.detail-category カテゴリー
             %span.detail-attention 必須
-            -# = f.collection_select :category_id, Category.all, class: "item-input__select", prompt: "選択してください"
-            = f.text_field :category_id
+            = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '選択して下さい'}, {class: 'new-contentsboxselect__input', id: 'category-select-parent', required: "required"}
           .sell-form__detail__box-middle
             %label.detail-brand ブランド
             %span.detail-attention 任意
@@ -52,6 +62,7 @@
             %label.detail-condition 商品の状態
             %span.detail-attention 必須
             = f.select :condition, ["選択してください", "新品、未使用", "未使用に近い", "目立った傷や汚れなし", "やや傷や汚れあり", "傷や汚れあり", "全体的に状態が悪い"], class: "item_condition"
+
 
 
       .sell-form__delivery
@@ -66,7 +77,7 @@
             %label.delivery-area 発送元の地域
             %span.delivery-attention 必須
             = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください", class: "item-input__select"
-
+  
           .sell-form__delivery__box-bottom
             %label.delivery-days 発送までの日数
             %span.delivery-attention 必須
@@ -98,11 +109,12 @@
             .sell-form__price__box-middle
               .sell-form__price__box-middle__sell--btn
                 = f.submit "出品する", class: "sell-btn"
-
               .back-btn
-                = link_to "もどる", root_path
+                = link_to "もどる", root_path, class: "back"
 
             .sell-form__price__box-bottom
               %p.rule 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+
+    = render partial: "devise/footer"
 
 
