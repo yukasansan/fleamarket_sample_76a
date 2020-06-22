@@ -1,0 +1,65 @@
+.main
+  %header.confirmation-header
+    = link_to root_path  do
+      = image_tag 'logo/logo.png'
+  %main.confirmation-body
+    %section.confirmation-contents
+      %h2.confirmation-contents__title 購入内容の確認
+      %section.confirmation-contents__inner
+        .confirmation-contents__inner-item
+          .confirmation-contents__inner-item--image
+            = image_tag 'pict/a001.png'
+          .confirmation-contents__inner-item--detail
+            %p.confirmation-contents__inner-item--detail-name
+              = @item.name
+            %p.confirmation-contents__inner-item--detail-price
+              -# ↓場合分けあるいは計算するメソッドが必要?
+              %span
+                = "¥#{@item.price.to_s(:delimited)}"
+              %span (税込)送料込み
+      %section.confirmation-contents__inner
+        .confirmation-contents__inner-buy
+          .purchase-table
+            .purchase-table__label 支払い金額
+            .purchase-table__price
+              = "¥#{@item.price.to_s(:delimited)}"
+          - if @card.present?
+            %section.pay-method
+              .pay-method__inner
+                %h3 支払い方法
+                = link_to '変更する', cards_path, class:"change-cards"
+                %p クレジットカード
+                = image_tag @card_src, size: "35x25", alt: @card_brand, class: "card-information__image"
+                %p
+                  = "**** **** **** " + @card_information.last4
+                  %br
+                  - exp_month = @card_information.exp_month.to_s
+                  - exp_year = @card_information.exp_year.to_s.slice(2,3)
+                  = exp_month + " / " + exp_year
+          - else
+            %section.pay-method
+              .pay-method__inner
+                %h3 支払い方法
+                = link_to new_card_path do
+                  %p.pay-method__inner-registration
+                    = fa_icon 'plus-circle'
+                    %span.pay-method__inner-registration--text
+                      登録してください
+          %section.shipping-address
+            .shipping-address__inner
+              %h3 配送先
+              -# ↓機能実装時にroot_pathを該当編集ページのパスに変更
+              = link_to '変更する', root_path, class:"change-address"
+            .shipping-address__inner-info
+              %p
+                = "〒 #{current_user.address[:post_cord].to_s.insert(3, "-")}"
+                %br
+                = current_user.address[:prefecture_id] + current_user.address[:city] + current_user.address[:address] + current_user.address[:building]
+                %br
+                = current_user.last_name + " " + current_user.first_name
+          - if @card.present? && @item.buyer_id.blank?
+            = form_tag(action: :pay, method: :post) do
+              %button.purchase-btn-true{type:"submit"} 購入する
+          - else
+            %button.purchase-btn-false{type:"submit", disabled:""} お支払い方法を登録して下さい
+  = render partial: 'devise/footer'

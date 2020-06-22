@@ -49,97 +49,120 @@
     &__bottom {
       font-size: 14px;
       display: flex;
-      margin-bottom: 10px;
-      .hcBottom__left {
-        position: relative;
-        display: flex;
-        &--category {
-          display: flex;
-          line-height: 38px;
-          &:hover > .category-tree {
-            display: block;
+      .fa-bars {
+        color: #3CCACE;
+      }
+      .fa-tag {
+        color: #3CCACE;
+      }
+    }
+    .category__child, .category__parent, .category__grandchild{
+      display: none;
+    }
+    
+    .category__list{
+      position: absolute;
+      background-color: white;
+      border-right: 1px solid whitesmoke;
+      height: 742px;
+    }
+    
+    .category__child--name{
+      width: 100%;
+      color: black;
+      display: inline-block;
+      padding: 3px 15px;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+    
+    .hcBottom__left {
+      padding: 10px 0;
+      &:hover{
+        .category__parent{
+          top: 108px;
+          display: block;
+          z-index: 10;
+          &--name{
+            width: 100%;
+            color: black;
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 13px;
+            letter-spacing: 2px;
+            border-bottom: solid whitesmoke 1px;
+            &:hover {
+              background-color: #3CCACE;
+              color: white;
+            }
           }
-          .category-tree {
-            display: none;
-            position: absolute;
-            top: 100%;
-            z-index: 1;
-            background-color: #fff;
-            &__box {
-              width: 240px;
-              &-item {
+          li {
+            &:hover{
+              .category__child{
+                width: 100%;
                 display: block;
-                width: 240px;
-                padding: 3px 8px 3px 5px;
-                border-bottom: 1px solid #f8f8f8;
-                &:hover > .second-tree__box {
-                  display: block;
+                top: 0;
+                left: 221px;
+                &--name{
+                  border-bottom: solid whitesmoke 1px;
+                  &:hover {
+                    background-color: lightgray;
+                  }
                 }
-                .second-tree__box {
-                  position: absolute;
-                  top: 0px;
-                  left: 100%;
-                  display: none;
-                  background-color: #fff;
-                  &-item {
-                    height: 600px;
-                    width: 240px;
-                    &:hover > .third-tree__box {
+                li {
+                  &:hover{
+                    .category__grandchild{
+                      width: 300px;
                       display: block;
-                    }
-                    .third-tree__box {
-                      position: absolute;
-                      top: 0px;
-                      left: 100%;
-                      display: none;
-                      background-color: #fff;
-                      height: 600px;
-                      width: 240px;
+                      top: 0;
+                      left: 220px;
                     }
                   }
                 }
               }
             }
           }
-          a {
-            @include top_a_left
-          }
-          a:hover {
-            color: #ffb340;
-          }
-        }
-        &--brand {
-          display: flex;
-          line-height: 38px;
-          padding: 0 0 0 16px;
-          a {
-            @include top_a_left
-          }
-          a:hover {
-            color: #ffb340;
-          }
-        }
-      }
-      .hcBottom__right {
-        margin-left: auto;
-        display: flex;
-        &--session {
-          color: #333;
-          line-height: 38px;
-          padding: 0 0 0 16px;
-          a {
-            @include top_a_right
-          }
-        }
-        &--registration {
-          color: #333;
-          line-height: 38px;
-          padding: 0 0 0 16px;
-          a {
-            @include top_a_right
-          }
         }
       }
     }
+
+
+    a {
+      @include top_a_left
+    }
+    .hcBottom__left--brand {
+      padding: 10px 0;
+      display: flex;
+      line-height: 38px;
+    }
+    .brands {
+      position: absolute;
+      background-color: white;
+      border-right: 1px solid whitesmoke;
+      width: 200px;
+    }
   }
 }
+
+.hcBottom__right {
+  padding: 10px;
+  margin-left: auto;
+  display: flex;
+  &--session {
+    color: #333;
+    line-height: 38px;
+    padding: 0 0 0 16px;
+    a {
+      @include top_a_right
+    }
+  }
+  &--registration {
+    color: #333;
+    line-height: 38px;
+    padding: 0 0 0 16px;
+    a {
+      @include top_a_right
+    }
+  }
+}
+    

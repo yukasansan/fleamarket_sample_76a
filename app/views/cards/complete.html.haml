@@ -1,0 +1,25 @@
+.main
+  %header.confirmation-header
+    = link_to root_path  do
+      = image_tag 'logo/logo.png'
+  %main.confirmation-body
+    %section.confirmation-contents
+      %h2.confirmation-contents__title 購入が完了しました
+      %section.confirmation-contents__inner
+        .confirmation-contents__inner-item
+          .confirmation-contents__inner-item--image
+            = image_tag 'pict/a001.png'
+          .confirmation-contents__inner-item--detail
+            %p.confirmation-contents__inner-item--detail-name
+              = @item.name
+            %p.confirmation-contents__inner-item--detail-price
+              -# ↓場合分けあるいは計算するメソッドが必要?
+              %span
+                = "¥#{@item.price.to_s(:delimited)}"
+              %span (税込)送料込み
+      .complete-links
+        .complete-links__top-page
+          = link_to "トップページへ", root_path
+        .complete-links__my-page
+          = link_to "マイページへ", mypage_index_path
+  = render partial: 'devise/footer'

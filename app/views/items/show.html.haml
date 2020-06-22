@@ -6,53 +6,60 @@
     .show__main__content
       .show__main__content__top
         %h2.show__main__content__top__name 
-          prodact1
+          = @item.name
         .show__main__content__top__image
-          %ul.maincontent__image
-            %li= image_tag 'pict/item1.png'
-          %ul.subcontent__image
-            %li= image_tag 'pict/item1.png'
-            %li= image_tag 'pict/item2.png'
-            %li= image_tag 'pict/item3.png'
+          - if @item.buyer_id.blank?
+            %ul.maincontent__image
+              %li= image_tag @item.item_images.first&.image.url
+            %ul.subcontent__image
+              %li= image_tag @item.item_images.first&.image.url
+              %li= image_tag @item.item_images.first&.image.url
+              %li= image_tag @item.item_images.first&.image.url
+          - else
+            = image_tag 'pict/sold_out.png', class: "maincontent__image"
         .show__main__content__price
-          %span ¥5,000
+          %span
+            = "¥#{@item.price.to_s(:delimited)}"
           .show__main__content__price__detail
             %span （税込） 
             %span 送料込み
         .show__main__content__detail
-          親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰を抜かす奴があるかと云ったから、この次は抜かさずに飛んで見せますと答えた。
+          = @item.text
         .show__main__content__table
           %table
             %tbody
               %tr
                 %th 出品者
-                %td ふりま太郎
+                %td= @item.seller.nickname
               %tr
                 %th カテゴリー
                 %td
-                  =link_to 'ベビー・キッズ', '#'
+                  =link_to @item.category.name, '#'
                   %br
                   =link_to 'ベビー服（男女兼用）〜95cm', '#'
                   %br
                   =link_to 'アウター', '#'
               %tr
                 %th ブランド
-                %td
+                %td=@item.brand
               %tr
                 %th 商品のサイズ
-                %td
+                %td= @item.size
               %tr
                 %th 商品の状態
-                %td 未使用に近い
+                %td
+                  = @item.condition
               %tr
                 %th 配送料の負担
-                %td 送料込み（出品者負担）
+                %td
+                  = @item.shipping_price
               %tr
                 %th 発送元の地域
-                %td=link_to '岩手県', '#'
+                %td=@item.prefecture_id
               %tr
                 %th 発送日の目安
-                %td 4-7日で発送
+                %td 
+                  = @item.shipping_days
         .show__main__content__option        
           %ul
             %li.option__btn#like__btn
@@ -61,7 +68,17 @@
           %ul.optional
             %li.optional__btn
               = fa_icon("flag")
-              =link_to '不適切な商品の通報', '#'
+              = link_to '不適切な商品の通報', '#'
+        - if @item.buyer_id.present?
+          %button.show__main__content__sold-out{disabled:""} SOLD OUT
+        - elsif user_signed_in? == false
+          = link_to "ログインして下さい", user_session_path, class:"show__main__content__purchase-btn"
+        - elsif current_user.id == @item.seller_id
+          .show__main__content__btn
+            = link_to "編集する", edit_item_path(@item.id), class:"show__main__content__btn--edit"
+            = link_to "削除する", item_path(@item.id), method: :delete, class:"show__main__content__btn--delete"
+        - else
+          = link_to "購入画面に進む", confirmation_card_path(@item.id), class:"show__main__content__purchase-btn"
       .show__main__content__comment
         %textarea#comment_body{name: "comment[body]", required: "required"}
         %p.comment__message 
