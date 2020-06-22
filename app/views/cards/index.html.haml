@@ -1,0 +1,24 @@
+= render partial: "items/header"
+.wrapper__mypage
+  = render partial: 'mypage/leftlist'
+  .users-form 
+    %h1 支払い方法
+    .card-information
+      - if @card.present?
+        .card-information__title
+          %h3 クレジットカード
+        = form_with url: card_path(@card.id), method: :delete, local: true do |f|
+          %figure
+            = image_tag @card_src, size: "56x40", alt: @card_brand, class: "card-information__image"
+          .card-information__number
+            %p カード番号
+            = "**** **** **** " + @card_information.last4
+          .card-information__limit
+            %p 有効期限(月/年)
+            - exp_month = @card_information.exp_month.to_s
+            - exp_year = @card_information.exp_year.to_s.slice(2,3)
+            = exp_month + " / " + exp_year
+          %input{type: "hidden", name: "card_id", value: ""}
+            = f.submit "削除する", class: "card-information__delete-btn"
+= render partial: "items/aside"
+= render partial: "items/footer"

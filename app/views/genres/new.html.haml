@@ -1,0 +1,14 @@
+%h1 ブランド入力ページだよ
+= form_for @genre do |f|
+  = f.text_field :name, required:"required"
+  = f.submit "登録"
+
+%p 登録済みブランド一覧
+- @genres.each do |genre|
+  %tr
+  %li
+    %td= genre.name
+    %td= link_to "編集", edit_genre_path(genre)
+    %td= link_to "削除", "/genres/#{genre.id}", method: :delete
+
+=link_to "トップページへ戻る", root_path
