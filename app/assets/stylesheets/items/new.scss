@@ -11,7 +11,7 @@
     left: 380px;
     &__image {
       width: 700px;
-      height: 300px;
+      height: 350px;
       border-style: solid;
       border-width: 0 0 1px 0;
       border-color: #efefef;
@@ -43,35 +43,18 @@
           font-size: 14px;
           margin-top: 16px;
         }
-        .photo-box {
-          height: 148px;
-          width: 100%;
-          background-color: #efefef;
-          text-decoration: none;
-          cursor: pointer;
-          text-align: center;
-          font-size: 1.5rem;
-          position: relative;
-          margin-top: 16px;
-          border-style: dashed;
-          border-color: #ccc6c6;
-          border-width: 1px;
-          .hidden {
-            display: none;
+        #image-box {
+          #previews {
+            margin: 0 5px;
+            width: 18%;
+            display: flex;
           }
-          .icon_camera {
-            width: 20px;
-            height: 20px;
-            display: block;
-            position: absolute;
-            top: 40px;
-            left: 50%;
-          }
-          .explanation-content {
-            font-size: 11px;
-            position: absolute;
-            top: 60px;
-            left: 210px;
+          .js-file_group {
+            #camera {
+            }
+            .fa.fa-camera {
+              cursor: pointer;
+            }
           }
         }
       }
@@ -149,7 +132,7 @@
     }
     &__detail {
       width: 700px;
-      height: 514px;
+      height: 460px;
       border-style: solid;
       border-width: 0 0 1px 0;
       border-color: #efefef;
@@ -187,7 +170,7 @@
             padding: 0 4px;
             margin-left: 8px;
           }
-          .category-select {
+          #category-select-parent { //.category-select
             height: 48px;
             cursor: pointer;
             background-color: #fff;
@@ -252,7 +235,7 @@
             padding: 0 4px;
             margin-left: 8px;
           }
-          .condition-select {
+          #item_condition {
             height: 48px;
             cursor: pointer;
             background-color: #fff;
@@ -272,7 +255,7 @@
     }
     &__delivery {
       width: 700px;
-      height:  444px;
+      height:  550px;
       border-style: solid;
       border-width: 0 0 1px 0;
       border-color: #efefef;
@@ -310,7 +293,7 @@
             padding: 0 4px;
             margin-left: 8px;
           }
-          .burden-select {
+          #item_shipping_price {
             height: 48px;
             cursor: pointer;
             background-color: #fff;
@@ -345,7 +328,7 @@
             padding: 0 4px;
             margin-left: 8px;
           }
-          .area-select {
+          #item_prefecture_id {
             height: 48px;
             cursor: pointer;
             background-color: #fff;
@@ -380,7 +363,42 @@
             padding: 0 4px;
             margin-left: 8px;
           }
-          .days-select {
+          #item_shipping_days {
+            height: 48px;
+            cursor: pointer;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            color: #222;
+            font-size: 16px;
+            line-height: 1;
+            margin: 0;
+            outline: none;
+            padding: 0 56px 0 16px;
+            width: 100%;
+            margin-top: 16px;
+          }
+        }
+        &-method {
+          margin-top: 32px;
+          .delivery-method {
+            font-weight: 600;
+            line-height: 1.4em;
+            font-size: 14px;
+          }
+          .delivery-attention {
+            background-color: red;
+            color: white;
+            border-radius: 2px;
+            display: inline-block;
+            font-weight: 600;
+            line-height: 1.4em;
+            margin: 0;
+            font-size: 12px;
+            padding: 0 4px;
+            margin-left: 8px;
+          }
+          #item_shipping_method {
             height: 48px;
             cursor: pointer;
             background-color: #fff;
@@ -473,9 +491,11 @@
           height: 164px;
           margin: 0 auto;
           margin-bottom: 32px;
+          position: relative;
           &__sell--btn {
             display: block;
             position: relative;
+            margin-bottom: 20px;
             .sell-btn {
               display: block;
               width: 100%;
@@ -488,29 +508,16 @@
               border-radius: 4px;
               cursor: pointer;
             }
-            .save-btn {
-              display: block;
-              width: 100%;
-              height: 48px;
-              margin: 24px 0;
-              border: none;
-              font-size: 18px;
-              font-weight: 400;
-              border-radius: 4px;
-              background-color: #ccc;
-              cursor: pointer;
-            }
-            .back-btn {
-              display: block;
-              text-decoration: none;
-              color: #0095ee;
-              cursor: pointer;
-              background-color: white;
-              border:0;
-              margin: 0 auto;
-              position: absolute;
-              left: 152px;
-            }
+          }
+          .back {
+            display: block;
+            text-decoration: none;
+            color: #0095ee;
+            cursor: pointer;
+            background-color: white;
+            border:0;
+            margin: 0 auto;
+            text-align: center;
           }
         }
         &-bottom {
@@ -544,3 +551,5 @@
     }
   }
 }
+
+

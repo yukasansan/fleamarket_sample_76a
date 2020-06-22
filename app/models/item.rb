@@ -14,12 +14,12 @@ class Item < ApplicationRecord
   
   # item_imagesモデルの属性付
   has_many :item_images, inverse_of: :item, dependent: :destroy
-  accepts_nested_attributes_for :item_images
+  accepts_nested_attributes_for :item_images ,allow_destroy: true
 
 
   validates :name, presence: true, length: { maximum: 40 }
   validates :text, presence: true, length: { maximum: 1000 }
-  validates :condition, :shipping_method, :shipping_days, :prefecture_id, :shipping_price, :price, :seller_id, :category_id, :sale_status, presence: true
+  validates :condition, :shipping_method, :shipping_days, :prefecture_id, :shipping_price, :price, :seller_id, :sale_status, presence: true
 
 
   def self.search(search)

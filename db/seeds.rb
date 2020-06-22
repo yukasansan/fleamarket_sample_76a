@@ -332,9 +332,10 @@ others_8.children.create([{name: "オフィス用品一般"},{name: "オフィ�
 others_9 = others.children.create(name: "その他")
 others_9.children.create([{name: "すべて"}])
 
-Genre.create(name: "シャネル")
-Genre.create(name: "ナイキ")
-Genre.create(name: "ルイ ヴィトン")
-Genre.create(name: "シュプリーム")
-Genre.create(name: "アディダス")
-Genre.create(name: "ブランド一覧")
+
+Brand.create(name: "シャネル")
+Brand.create(name: "ナイキ")
+Brand.create(name: "ルイ ヴィトン")
+Brand.create(name: "シュプリーム")
+Brand.create(name: "アディダス")
+Brand.create(name: "ブランド一覧")
