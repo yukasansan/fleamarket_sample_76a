@@ -2,12 +2,12 @@ class GenresController < ApplicationController
 before_action :set_genre, only: [:edit, :update, :destroy]
 
     def new
-      @genres = Genre.all
-      @genre = Genre.new
+      @genres = Brand.all
+      @genre = Brand.new
     end
   
     def create
-      @genre = Genre.create(genre_params)
+      @genre = Brand.create(genre_params)
       redirect_to new_genre_path
     end
 
@@ -31,7 +31,7 @@ before_action :set_genre, only: [:edit, :update, :destroy]
     end
 
     def set_genre
-      @genre = Genre.find(params[:id])
+      @genre = Brand.find(params[:id])
     end
 
 end
