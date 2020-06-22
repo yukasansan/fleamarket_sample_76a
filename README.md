@@ -56,7 +56,6 @@
 |condition|string|null:false|
 |shipping_method|string|null:false|
 |shipping_days|string|null:false|
-|shipping_area|string|null:false|
 |shipping_price|integer|null:false|
 |price|integer|null:false|
 |text|text|null:false|
