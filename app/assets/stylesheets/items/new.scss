@@ -44,14 +44,7 @@
           margin-top: 16px;
         }
         #image-box {
-          #previews {
-            margin: 0 5px;
-            width: 18%;
-            display: flex;
-          }
           .js-file_group {
-            #camera {
-            }
             .fa.fa-camera {
               cursor: pointer;
             }
@@ -343,6 +336,21 @@
             width: 100%;
             margin-top: 16px;
           }
+          #item_category_id {
+            height: 48px;
+            cursor: pointer;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            color: #222;
+            font-size: 16px;
+            line-height: 1;
+            margin: 0;
+            outline: none;
+            padding: 0 56px 0 16px;
+            width: 100%;
+            margin-top: 16px;
+          }
         }
         &-bottom {
           margin-top: 32px;
@@ -551,5 +559,3 @@
     }
   }
 }
-
-

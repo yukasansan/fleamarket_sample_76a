@@ -10,11 +10,11 @@
         .show__main__content__top__image
           - if @item.buyer_id.blank?
             %ul.maincontent__image
-              %li= image_tag @item.item_images.first&.image.url
+              %li= image_tag @images[0].image.url
             %ul.subcontent__image
-              %li= image_tag @item.item_images.first&.image.url
-              %li= image_tag @item.item_images.first&.image.url
-              %li= image_tag @item.item_images.first&.image.url
+              - @images.drop(1).each do |image|
+                %li
+                  = image_tag image.image.url
           - else
             = image_tag 'pict/sold_out.png', class: "maincontent__image"
         .show__main__content__price
