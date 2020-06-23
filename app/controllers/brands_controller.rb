@@ -2,8 +2,8 @@ class BrandsController < ApplicationController
   before_action :set_brand, only: [:edit, :update, :destroy]
 
     def new
-      @brands = Brand.includes(:name)
-      @brand = Brand.new.includes(:name)
+      @brands = Brand.all
+      @brand = Brand.new.
     end
   
     def create
