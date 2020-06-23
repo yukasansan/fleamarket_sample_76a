@@ -15,8 +15,11 @@ class BrandsController < ApplicationController
     end
 
     def update
-      @brand.update(brand_params)
-      redirect_to new_brand_path
+      if @brand.update(brand_params)
+        redirect_to new_brand_path
+      else
+        redirect_to edit_brand_path(@brand.id)
+      end
     end
 
     def destroy
