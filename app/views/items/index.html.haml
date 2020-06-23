@@ -94,9 +94,7 @@
       .pickup-products
         - @products.each do |item|
           .pickup-products__item
-            -# = link_to '/items/1' do
             = link_to "/items/#{item.id}" do
-
               %figure.pickup-products__item-img
                 = image_tag item.item_images.first&.image.url
               .pickup-products__item-content
