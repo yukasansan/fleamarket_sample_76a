@@ -7,8 +7,11 @@ class BrandsController < ApplicationController
     end
   
     def create
-      @brand = Brand.create(brand_params)
-      redirect_to new_brand_path
+      if @brand = Brand.create(brand_params)
+        redirect_to new_brand_path
+      else
+        redirect_to root_path
+      end
     end
 
     def edit
