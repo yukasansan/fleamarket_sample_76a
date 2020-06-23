@@ -2,8 +2,8 @@ class BrandsController < ApplicationController
   before_action :set_brand, only: [:edit, :update, :destroy]
 
     def new
-      @brands = Brand.all
-      @brand = Brand.new
+      @brands = Brand.includes(:name)
+      @brand = Brand.new.includes(:name)
     end
   
     def create
@@ -23,8 +23,11 @@ class BrandsController < ApplicationController
     end
 
     def destroy
-      @brand.destroy
-      redirect_to new_brand_path
+      if @brand.destroy
+        redirect_to new_brand_path
+      else
+        redirect_to root_path
+      end
     end
   
   
