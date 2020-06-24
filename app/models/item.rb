@@ -20,7 +20,7 @@ class Item < ApplicationRecord
   validates :name, presence: true, length: { maximum: 40 }
   validates :text, presence: true, length: { maximum: 1000 }
   validates :condition, :shipping_method, :shipping_days, :prefecture_id, :shipping_price, :price, :seller_id, :sale_status, presence: true
-
+  validates :price, presence: true, inclusion: 300..9999999
 
   def self.search(search)
     if search

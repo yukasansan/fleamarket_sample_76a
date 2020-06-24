@@ -2,6 +2,19 @@
   cursor: pointer;
 }
 
+.detail-attention__any {
+  background-color: #bfbfbf;
+  color: white;
+  border-radius: 2px;
+  display: inline-block;
+  font-weight: 600;
+  line-height: 1.4em;
+  margin: 0;
+  font-size: 12px;
+  padding: 0 4px;
+  margin-left: 8px;
+}
+
 .main__items {
   background-color: #F5F5F5;
   .header_logo {
@@ -198,18 +211,7 @@
             line-height: 1.4em;
             font-size: 14px;
           }
-          .detail-attention {
-            background-color: #bfbfbf;
-            color: white;
-            border-radius: 2px;
-            display: inline-block;
-            font-weight: 600;
-            line-height: 1.4em;
-            margin: 0;
-            font-size: 12px;
-            padding: 0 4px;
-            margin-left: 8px;
-          }
+
           .brand-input {
             display: block;
             width: 620px;
