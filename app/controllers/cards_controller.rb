@@ -42,6 +42,11 @@ class CardsController < ApplicationController
 
   def confirmation
     redirect_to user_session_path unless user_signed_in?
+    @images = @item.item_images.all
+  end
+  
+  def complete
+    @images = @item.item_images.all
   end
 
   def pay
@@ -56,8 +61,6 @@ class CardsController < ApplicationController
       redirect_to action: :complete
   end
 
-  def complete
-  end
 
   private
 

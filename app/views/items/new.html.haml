@@ -53,10 +53,10 @@
             %label.detail-category カテゴリー
             %span.detail-attention 必須
             = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '選択して下さい'}, {class: 'new-contentsboxselect__input', id: 'category-select-parent', required: "required"}
-          .sell-form__detail__box-middle
+          .sell-form__detail__box-top
             %label.detail-brand ブランド
-            %span.detail-attention 任意
-            = f.text_field :brand_id, class: 'brand-input', placeholder: "（例）シャネル" 
+            %span.detail-attention__any 任意
+            = f.collection_select :brand_id, Brand.all, :id, :name, {prompt: "選択してください"}, {class: 'new-contentsboxselect__input', id: 'category-select-parent'}
           .sell-form__detail__box-bottom
             %label.detail-condition 商品の状態
             %span.detail-attention 必須

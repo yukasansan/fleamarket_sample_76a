@@ -6,6 +6,10 @@ crumb :mypage do
   link "マイページ", mypage_index_path
 end
 
+crumb :show do
+  link "商品詳細ページ", item_path
+end
+
 crumb :profile do
   link "プロフィール", "#"
   parent :mypage
@@ -15,6 +19,15 @@ crumb :categories do
   link "カテゴリー一覧", "categories_path"
 end
 
+crumb :card_Registration do
+  link "クレジットカード登録", "new_card_path"
+  parent :mypage
+end
+
+crumb :method_payment do
+  link "支払い方法", "cards_path"
+  parent :mypage
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end

@@ -1,5 +1,6 @@
 = render partial: "items/header"
-= render partial: "items/itemnav"
+- breadcrumb :show
+= render "layouts/breadcrumbs"
 
 .main
   .show__main
@@ -35,27 +36,31 @@
                 %th カテゴリー
                 %td
                   =link_to @item.category.name, '#'
-                  %br
-                  =link_to 'ベビー服（男女兼用）〜95cm', '#'
-                  %br
-                  =link_to 'アウター', '#'
               %tr
                 %th ブランド
-                %td=@item.brand
+                -if @item.brand ==! nil
+                  %td=@item.brand.name
+                - else
+                  %td="ブランドの指定はありません" 
               %tr
                 %th 商品のサイズ
-                %td= @item.size
+                - if @item.size ==! nil
+                  %td=@item.size
+                -else
+                  %td="サイズ指定はありません"
               %tr
                 %th 商品の状態
                 %td
                   = @item.condition
               %tr
                 %th 配送料の負担
-                %td
-                  = @item.shipping_price
+                - if @item.shipping_price ==! 0
+                  %td= @item.shipping_price
+                -else
+                  %td= "配送料の負担はありません"
               %tr
                 %th 発送元の地域
-                %td=@item.prefecture_id
+                %td=@item.prefecture.name
               %tr
                 %th 発送日の目安
                 %td 
