@@ -13,7 +13,7 @@ $(function(){
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
     const html = `<div class="preview">
-                    <img data-index="${index}" src="${url}" width="100px" height="100px" style="margin-right: 18px;" >
+                    <img data-index="${index}" src="${url}" width="100px" height="100px">
                     <label for='camera[${index + 1}]'><i class="fa fa-camera"></i></label>
                     <span class="js-remove">削除</span>
                     </img>

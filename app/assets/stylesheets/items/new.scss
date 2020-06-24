@@ -67,9 +67,12 @@
             flex-direction: row;
             flex-wrap: wrap;
             .preview {
-              margin: 0 5px;
-              width: 18%;
+              margin: 0 9px;
+              width: 100px;
               .js-remove:hover {
+                color: red;
+              }
+              .js-remove-edit:hover {
                 color: red;
               }
             }
