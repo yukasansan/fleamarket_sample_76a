@@ -8,7 +8,7 @@
       %section.confirmation-contents__inner
         .confirmation-contents__inner-item
           .confirmation-contents__inner-item--image
-            = image_tag 'pict/a001.png'
+            = image_tag @images[0].image.url
           .confirmation-contents__inner-item--detail
             %p.confirmation-contents__inner-item--detail-name
               = @item.name
