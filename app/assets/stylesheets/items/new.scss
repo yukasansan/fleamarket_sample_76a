@@ -1,3 +1,7 @@
+.fa.fa-camera {
+  cursor: pointer;
+}
+
 .main__items {
   background-color: #F5F5F5;
   .header_logo {
@@ -44,9 +48,16 @@
           margin-top: 16px;
         }
         #image-box {
-          .js-file_group {
-            .fa.fa-camera {
-              cursor: pointer;
+          #previews {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            .preview {
+              margin: 0 5px;
+              width: 18%;
+              .js-remove:hover {
+                color: red;
+              }
             }
           }
         }
