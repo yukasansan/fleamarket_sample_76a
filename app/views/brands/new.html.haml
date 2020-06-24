@@ -9,6 +9,6 @@
   %li
     %td= brand.name
     %td= link_to "編集", edit_brand_path(brand)
-    %td= link_to "削除", brand_path(brand), method: :delete
+    %td= link_to "削除", brand_path(brand), method: :delete, id: "delete__btn"
 
 =link_to "トップページへ戻る", root_path
