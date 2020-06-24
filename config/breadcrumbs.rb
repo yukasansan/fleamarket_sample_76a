@@ -6,6 +6,10 @@ crumb :mypage do
   link "マイページ", mypage_index_path
 end
 
+crumb :show do
+  link "商品詳細ページ", item_path
+end
+
 crumb :profile do
   link "プロフィール", "#"
   parent :mypage
