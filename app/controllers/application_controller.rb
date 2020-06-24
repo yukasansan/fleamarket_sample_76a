@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
   
   def set_brands
-    @brands = Genre.all.order(id: "DESC")
+    @brands = Brand.all.order(id: "DESC")
   end
 
   protected

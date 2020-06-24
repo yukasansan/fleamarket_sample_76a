@@ -1,3 +1,7 @@
+.fa.fa-camera {
+  cursor: pointer;
+}
+
 .main__items {
   background-color: #F5F5F5;
   .header_logo {
@@ -54,12 +58,6 @@
               .js-remove:hover {
                 color: red;
               }
-            }
-          }
-          .js-file_group {
-
-            .fa.fa-camera {
-              cursor: pointer;
             }
           }
         }
@@ -349,6 +347,21 @@
             width: 100%;
             margin-top: 16px;
           }
+          #item_category_id {
+            height: 48px;
+            cursor: pointer;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            color: #222;
+            font-size: 16px;
+            line-height: 1;
+            margin: 0;
+            outline: none;
+            padding: 0 56px 0 16px;
+            width: 100%;
+            margin-top: 16px;
+          }
         }
         &-bottom {
           margin-top: 32px;
@@ -557,5 +570,3 @@
     }
   }
 }
-
-

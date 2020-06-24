@@ -1,0 +1,108 @@
+= form_for @item do |f|
+
+  .main__items
+    .user-sign__up
+      .header_logo
+        = link_to root_path  do
+          = image_tag 'logo/logo.png'
+    .sell-form
+      .sell-form__image
+        .sell-form__image__box
+          %label.image-product 出品画像
+          %span.image-attention 必須
+          %p.image-content 最大10枚までアップロードできます
+          #image-box
+            #previews
+              - if @item.persisted?
+                - @item.item_images.each_with_index do |image, i|
+                  = image_tag "#{image.image}", data: { index: i}, width: "100", height: '100'
+            = f.fields_for :item_images do |image|
+              .js-file_group{"data-index" => "#{image.index}"}
+                = image.file_field :image, class: 'js-file'
+                %span.js-remove 削除
+              - if @item.persisted?
+                = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+            - if @item.persisted?
+              .js-file_group{"data-index" => "#{@item.item_images.count}"}
+                = file_field_tag :image, name: "item[item_images_attributes][#{@item.item_images.count}][image]", class: 'js-file'
+                .js-remove 削除
+
+      .sell-form__product
+        .sell-form__product__box
+          .sell-form__product__box-top
+            %label.product-name 商品名
+            %span.name-attention 必須
+            = f.text_field :name, class: 'product-input', placeholder: "40文字以内"
+          .sell-form__product__box-bottom
+            %label.product-explanation 商品の説明
+            %span.name-attention 必須
+            = f.text_area :text, class: "explanation-input", placeholder: "商品の説明(必須1,000文字以内) (色、素材、重さ、低下、注意点など) 例)2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"
+
+      .sell-form__detail
+        .sell-form__detail__box
+          %label.sell-form__detail__box-name 商品の詳細
+          .sell-form__delivery__box-middle
+            %label.delivery-area カテゴリー
+            %span.delivery-attention 必須
+            = f.collection_select :category_id, Category.all, :id, :name, prompt: "選択してください", class: "item-input__select"
+          .sell-form__detail__box-middle
+            %label.detail-brand ブランド
+            %span.detail-attention 任意
+            = f.text_field :brand_id, class: 'brand-input', placeholder: "（例）シャネル" 
+          .sell-form__detail__box-bottom
+            %label.detail-condition 商品の状態
+            %span.detail-attention 必須
+            = f.select :condition, ["選択してください", "新品、未使用", "未使用に近い", "目立った傷や汚れなし", "やや傷や汚れあり", "傷や汚れあり", "全体的に状態が悪い"], class: "item_condition"
+
+
+      .sell-form__delivery
+        .sell-form__delivery__box
+          %label.sell-form__delivery__box-name 配送について
+          .sell-form__delivery__box-top
+            %label.delivery-burden 配送料の負担
+            %span.delivery-attention 必須
+            = f.select :shipping_price, ["送料込み(出品者負担)", "着払い(購入者負担)"], include_blank: '選択してください', class: "item-input__select"
+
+          .sell-form__delivery__box-middle
+            %label.delivery-area 発送元の地域
+            %span.delivery-attention 必須
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください", class: "item-input__select"
+
+          .sell-form__delivery__box-bottom
+            %label.delivery-days 発送までの日数
+            %span.delivery-attention 必須
+            = f.select :shipping_days, ["1~2日で発送", "2~3日で発送", "4~7日で発送"], include_blank: '選択してください', class: "item-input__select"
+
+          .sell-form__delivery__box-method
+            %label.delivery-method 配送方法
+            %span.delivery-attention 必須
+            = f.select :shipping_method, ["未定", "らくらくメルカリ便", "ゆうメール", "レターパック", "普通郵便(定形、定形外)", "クロネコヤマト", "ゆうパック", "クリックポスト", "ゆうパケット"], include_blank: '選択してください', class: "item-input__select"
+
+      .sell-form__price
+        .sell-form__price__box
+          %label.sell-form__price__box-name 価格（¥300～9,999,999）
+          .sell-form__price__box-top
+            .sell-form__price__box-top--input
+              %label.selling-price 販売価格
+              %span.price-attention 必須
+              %span.price-yen ¥
+              = f.text_field :price, class: "price-input", placeholder: "例）500"
+            .sell-form__price__box-top--fee
+              .selling-fee 販売手数料（10%）
+              %span.selling-fee__zero ー
+
+            %hr.border
+              .sell-form__price__box-top--profit
+                .selling-profit 販売利益
+                %span.selling-profit__zero ー
+
+            .sell-form__price__box-middle
+              .sell-form__price__box-middle__sell--btn
+                = f.submit "情報を更新する", class: "sell-btn"
+
+              .back-btn
+                = link_to "もどる", root_path
+
+            .sell-form__price__box-bottom
+              %p.rule 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+
