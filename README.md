@@ -30,7 +30,9 @@ Basic認証をかけています。閲覧時は以下のIDとPassを入力して
 ### 🎁出品者用アカウント
 - メール：seller_user76@gmail.com
 - パスワード：seller_user76
+
 ## 💻機能詳細
+
 ##                 〜トップページ〜
 CSSのみを使ったドロップダウンメニューやiQueryのslickを使ったスライドショーがある。
 ![Alt Text](https://gyazo.com/68dba537b6f681230e06c9c000900803.gif)
