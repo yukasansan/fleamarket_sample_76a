@@ -37,7 +37,7 @@ CSSのみを使ったドロップダウンメニューやiQueryのslickを使っ
 ![Alt Text](https://gyazo.com/68dba537b6f681230e06c9c000900803.gif)
 
 
-##                 〜新規会員登録機能〜
+##               〜新規会員登録機能〜
 個人情報と住所とクレジットカード情報を登録する事で会員登録できる。
 ![Alt Text](https://gyazo.com/bbaef71d3018ddfcac41138007b41e76.gif)
 
